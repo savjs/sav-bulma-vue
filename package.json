@@ -10,7 +10,7 @@
     "lint": "standard rollup.config.js components/** src/**",
     "fix": "npm run lint -- --fix",
     "pretest": "npm run lint",
-    "test": "",
+    "test": "nyc ava ./test",
     "prepare": "npm run build"
   },
   "repository": {
