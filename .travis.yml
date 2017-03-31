@@ -10,7 +10,7 @@ deploy:
 notifications:
   webhooks:
     urls:
-      - https://oapi.dingtalk.com/robot/send?access_token=dbc5ad0b26bd032ae6c092ae59bf46f5902ef62fc7b8feab78178be16915100c
+      - https://oapi.dingtalk.com/robot/send?access_token=c03616611eae385ac21e59856b5359a80b574da22386495cb63deba937371bd5
     on_success: always # default: always
     on_failure: always # default: always
     on_start: never   # default: never
