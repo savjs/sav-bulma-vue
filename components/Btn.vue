@@ -16,10 +16,9 @@
       to: {
         default: false
       },
-      disabled:{
+      disabled: {
         default: false
-      },
-
+      }
     },
     methods: {
       handleClick (event) {
