@@ -17,7 +17,7 @@ var checkbox = {
       type: 'String',
       default: '',
       description: `相当于 input[type=checkbox] 元素的 name 属性`
-    }
+    },
     {
       name: 'disabled',
       type: 'Boolean',
