@@ -1,13 +1,14 @@
 <template>
   <div>
-    <btn :styles="'button is-large'" @click="onclick" :disabled="true">aaa</btn>
+    <btn @click.native="click">常规按钮</btn>
+    <btn class="is-large" @click.native="click">大按钮</btn>
   </div>
 </template>
 <script>
   export default {
     methods:{
-      onclick:function(){
-        alert('click')
+      click () {
+        console.log('click')
       }
     }
   }

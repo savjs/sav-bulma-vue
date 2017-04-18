@@ -1,8 +1,8 @@
 <template>
-  <router-link v-if="to" :class="[styles]" :to="to">
+  <router-link v-if="to" :class="[theme.btn]" :to="to" @click="handleClick"  :disabled="disabled || null">
     <slot></slot>
   </router-link>
-  <button v-else :class="[styles]"  @click="handleClick" :disabled="disabled">
+  <button v-else :class="[theme.btn]"  @click="handleClick" :disabled="disabled || null">
     <slot></slot>
   </button>
 </template>
@@ -10,9 +10,6 @@
   import theme from './theme'
   export default {
     props: {
-      styles: {
-        default: theme.btn
-      },
       to: {
         default: false
       },
@@ -20,9 +17,14 @@
         default: false
       }
     },
+    data () {
+      return {theme}
+    },
     methods: {
-      handleClick (event) {
-        this.$emit('click', event)
+      handleClick ($event) {
+        if (this.disabled || $event.target.disabled) {
+          $event.preventDefault()
+        }
       }
     }
   }
