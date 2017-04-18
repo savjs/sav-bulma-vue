@@ -118,5 +118,15 @@ var input = {
             <input :maxlength="20"><input>
             `
         },
+        /*slot*/
+        {
+            name: 'prependContent',
+            text: `
+            <input slot="prependContent">
+                <span slot="prependContent">用户名:</span>
+                <span slot="appendContent">必填</span>
+            <input>
+            `
+        },
     ]
 }
