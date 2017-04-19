@@ -1,12 +1,6 @@
 var checkbox = {
   props: [
     {
-      name: 'styles',
-      type: 'String',
-      default: 'checkbox',
-      description: `为多选框设置样式和外观风格`
-    },
-    {
       name: 'value',
       type: 'Boolean',
       default: false,
@@ -41,15 +35,6 @@ var checkbox = {
     {
       name: 'value',
       file: 'examples/CheckValue.vue'
-    },
-    {
-      name: 'styles',
-      text: `
-        <div class="check-group">
-                <check-box :styles="'checkbox'" @change="onchange" v-model="check1">篮球</check-box>
-                <check-box :styles="'checkbox yourclass'" v-model="check2">足球</check-box>
-        </div>
-      `
     },
     {
       name: 'disabled',

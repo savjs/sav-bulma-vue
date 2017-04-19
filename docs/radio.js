@@ -1,12 +1,6 @@
 var radio = {
   props: [
     {
-      name: 'styles',
-      type: 'String',
-      default: 'radio',
-      description: `为多选框设置样式和外观风格`
-    },
-    {
       name: 'value',
       type: 'Boolean',
       default: false,
