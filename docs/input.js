@@ -52,32 +52,32 @@ var input = {
     slots: [
         {
             name: 'prependContent',
-            comment: '前置内容'
+            comment: '前置内容，可以是icon也可以是文字'
         },
         {
             name: 'appendContent',
-            comment: '后置内容'
+            comment: '后置内容，可以是icon也可以是文字'
         },
     ],
     events: [
         {
-            name: 'onEnter',
+            name: 'on-nter',
             description: `按下回车键时触发`
         },
         {
-            name: 'onClick',
+            name: 'on-click',
             description: `设置 icon 属性后，点击图标时触发`
         },
         {
-            name: 'onChange',
+            name: 'on-change',
             description: `数据改变时触发`
         },
         {
-            name: 'onFocus',
+            name: 'on-focus',
             description: `输入框聚焦时触发`
         },
         {
-            name: 'onBlur',
+            name: 'on-blur',
             description: `输入框失去焦点时触发`
         },
     ],
@@ -85,47 +85,47 @@ var input = {
         {
             name: 'type',
             text: `
-            <input :type="text"><input>
+            <sav-input :type="text"></sav-input>
             `
         },
         {
             name: 'value',
             text: `
-            <input :value="标题"><input>
+            <sav-input :value="标题"></sav-input>
             `
         },
         {
             name: 'placeholder',
             text: `
-            <input :placeholder="请输入"><input>
+            <sav-input :placeholder="请输入"></sav-input>
             `
         },
         {
             name: 'disabled',
             text: `
-            <input :disabled="true"><input>
+            <sav-input :disabled="true"></sav-input>
             `
         },
         {
             name: 'readonly',
             text: `
-            <input :readonly="true"><input>
+            <sav-input :readonly="true"></sav-input>
             `
         },
         {
             name: 'maxlength',
             text: `
-            <input :maxlength="20"><input>
+            <sav-input :maxlength="20"></sav-input>
             `
         },
         /*slot*/
         {
             name: 'prependContent',
             text: `
-            <input slot="prependContent">
-                <span slot="prependContent">用户名:</span>
-                <span slot="appendContent">必填</span>
-            <input>
+            <sav-input>
+                <span slot="prependContent">hello@:</span>
+                <span slot="appendContent">@</span>
+            </sav-input>
             `
         },
     ]

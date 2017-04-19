@@ -84,7 +84,6 @@ var modal = {
       name: 'value',
       file: 'examples/Modal.vue'
     }
-
   ]
 }
 
