@@ -1,16 +1,46 @@
 var btn = {
-  props: [
+  props: [   
     {
-      name: 'disabled',
-      type: 'Boolean',
+      name: 'type',
+      type: 'String',
       default: false,
-      description: `按钮是否禁用`
+      description: `按钮类型 可选值为is-primary is-info is-success is-warning is-danger或者不设置`
     },
     {
-      name: 'styles',
-      type: 'String',
+      name: 'to',
+      type: 'Boolean',
+      default: false,
+      description: `超链接`
+    },
+    {
+      name: 'size',
+      type:  'String',
       default: 'button',
-      description: `为按钮定义的样式`
+      description: `按钮大小`
+    },
+    {
+      name: 'long',
+      type:  'Boolean',
+      default: false,
+      description: `按钮的长度`
+    },
+    {
+      name: 'disabled',
+      type:  'Boolean',
+      default: false,
+      description: `设置按钮为禁用状态`
+    },
+    {
+      name: 'loading',
+      type:  'Boolean',
+      default: false,
+      description: `设置按钮为加载中状态`
+    },
+    {
+      name: 'icon',
+      type:  'String',
+      default: '',
+      description: `设置按钮的图标类型`
     }
   ],
   slots: [
@@ -28,15 +58,15 @@ var btn = {
   ],
   examples: [
     {
-      name: 'styles',
+      name: 'type',
       text: `
-        <btn :styles="'button is-large'" @click="onclick" :disabled="true">aaa</btn>
+        <btn :class="'btn is-large'" @click="onclick" :disabled="disabled || null" >aaa</btn>
       `
     },
     {
       name: 'disabled',
       text: `
-        <btn :styles="'button is-large'" @click="onclick" :disabled="true">aaa</btn>
+        <btn :class="'button is-large'" @click="onclick" :disabled="disabled || null">aaa</btn>
       `
     }
   ]
