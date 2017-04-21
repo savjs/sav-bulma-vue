@@ -1,16 +1,27 @@
 var Icon = {
-  props: [   
+  props: [
     {
-      name: 'styles',
-      type: String,
-      size: [Number, String],
-      color: String     
-      default: 'Icon'
+      name: 'type',
+      type: 'String',
+      default: '',
+      description: `图标的名称`
+    },
+    {
+      name: 'color',
+      type: 'String',
+      default: '',
+      description: `图标的颜色`
+    },
+    {
+      name: 'size',
+      type: 'Number | String',
+      default: '',
+      description: `图标的大小`
     }
   ]
   examples: [
     {
-      name: 'styles',
+      name: 'type',
       text: `
       <Icon :styles="'checkmark'"></Icon>      
       `

@@ -1,10 +1,11 @@
 var ButtonGroup = {
   props: [
     {
-      name: 'styles',
-      type: String  
+      name: 'type',
+      type: 'String' ,
+      default: 'btn',
+      description: `用于按钮组` 
     }
- 
   ],
   slots: [
     {
@@ -12,24 +13,16 @@ var ButtonGroup = {
       comment: '内容'
     }
   ],
-  events: [
-      {
-          name: 'click',
-          description: `点击事件`
-      },
-
-  ],
   examples: [
     {
-      name: 'styles',
+      name: 'type',
       text: `
-        <Button-group :styles="'control'">
-            <btn :styles="'button is-large'" @click="onclick" :disabled="true">aaa</btn>
-           <btn :styles="'button is-large'" @click="onclick" :disabled="true">aaa</btn>
-        </Button-group>
+        <div class="control ">
+            <btn :class="'btn is-large'"  :disabled="disabled || null" >aaa</btn>
+        </div>
+        
       `
     }
   ]
 }
-
 export {ButtonGroup}

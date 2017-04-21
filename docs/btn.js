@@ -19,12 +19,6 @@ var btn = {
       description: `按钮大小`
     },
     {
-      name: 'long',
-      type:  'Boolean',
-      default: false,
-      description: `按钮的长度`
-    },
-    {
       name: 'disabled',
       type:  'Boolean',
       default: false,
@@ -49,24 +43,17 @@ var btn = {
       comment: '内容'
     }
   ],
-  events: [
-      {
-          name: 'click',
-          description: `点击事件`
-      },
-
-  ],
   examples: [
     {
       name: 'type',
       text: `
-        <btn :class="'btn is-large'" @click="onclick" :disabled="disabled || null" >aaa</btn>
+        <btn :class="'btn is-large'"  :disabled="disabled || null" >aaa</btn>
       `
     },
     {
       name: 'disabled',
       text: `
-        <btn :class="'button is-large'" @click="onclick" :disabled="disabled || null">aaa</btn>
+        <btn :class="'button is-large'" :disabled="disabled || null">aaa</btn>
       `
     }
   ]
