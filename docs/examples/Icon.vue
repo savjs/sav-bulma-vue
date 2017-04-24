@@ -1,22 +1,3 @@
-<template>
-	<i :class="[theme.icon]" ></i>
+<template>	
+    <i :class="classes" :style="styles"></i>
 </template>
-
-<script>
-	export default {
-		props:{
-			icon: {
-				type: String,
-				default: '',
-			},
-			meta: {
-				type: String,
-				default: '',
-			},
-			theme: {
-				type: String,
-				default: ''
-			}
-		}
-	}
-</script>
