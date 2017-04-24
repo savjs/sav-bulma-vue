@@ -1,0 +1,51 @@
+.hf-select
+  display: inline-block
+  height: 26px
+  position: relative
+
+  select
+    -webkit-appearance: none
+    display: block
+    outline: none
+    align-items: center
+    justify-content: flex-start
+    cursor: pointer
+    padding: 1px 36px 2px 8px
+    color: #222324
+    font-size: 14px
+    font-family: "\5FAE\8F6F\96C5\9ED1", "	\5B8B\4F53", Arial
+    background-color: #fff
+    border: 1px solid #d3d6db
+    border-radius: 3px
+
+  select:active, select:focus
+    border-color: #00a0e9
+    outline: none
+
+  select[disabled]
+    background-color: #f5f7fa
+    border-color: #d3d6db
+    cursor: not-allowed
+    pointer-events: none
+    color: #ccc
+
+  select:hover
+    border-color: #aeb1b5
+
+  &:after
+    border: 1px solid #d0d5e6
+    border-right: 0
+    border-top: 0
+    content: " "
+    display: block
+    height: 7px
+    pointer-events: none
+    position: absolute
+    transform: rotate(-45deg)
+    width: 7px
+    margin-top: -6px
+    right: 16px
+    top: 50%
+
+  &:hover:after
+    border-color: #222324

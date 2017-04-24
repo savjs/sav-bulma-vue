@@ -1,0 +1,78 @@
+//common button default background color blue
+.hf-button
+  display: inline-block
+  padding: 0 10px
+  height: 28px
+  line-height: 28px
+  text-align: center
+  vertical-align: middle
+  cursor: pointer
+  background: $default-color-blue
+  color: $whiteColor
+  border-radius: $radius
+  border: none
+  min-width: 80px
+
+  +make-font-family
+
+  -webkit-user-select: none
+
+  &:hover
+    transition: all 0.2s
+    background: $default-color-blue-hover
+
+  &.topbar-button
+    height: 24px
+    line-height: 24px
+    position: relative
+    top: -1px
+
+//bg gree
+.button-green
+  background: $default-color-green
+
+  &:hover
+    background: $default-color-green-hover
+
+//bg red
+.button-red
+  background: #ff6464
+
+  &:hover
+    background: #ff8b8b
+
+//bg white
+.button-white
+  background: $whiteColor
+  border: solid 1px #d0d5e6
+  color: #333
+
+  &:hover
+    border: solid 1px $default-color-blue-hover
+    color: #fff
+
+.blue-button
+  background: $whiteColor
+  color: $default-color-blue
+  border: solid 1px $default-color-blue-hover
+
+  &:hover
+    background: $default-color-blue-hover
+    color: $whiteColor
+
+.button-size-big
+  min-width: 160px
+  padding: 0 10px
+  height: 40px
+  text-align: center
+  line-height: 40px
+  font-size: 14px
+
+.button-pure-bule
+  background-color: #00aaff
+  color: $whiteColor
+  border: solid 1px #00aaff
+  &:hover
+    background-color: $default-color-blue-hover
+    border: solid 1px $default-color-blue-hover
+    color: $whiteColor

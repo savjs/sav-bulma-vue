@@ -1,0 +1,223 @@
+.modal-mask
+  position: fixed
+  z-index: 10000000
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, 0.7)
+  display: table
+  transition: opacity .3s ease
+
+.modal-wrapper
+  display: table-cell
+  vertical-align: middle
+
+.modal-container
+  width: 400px
+  margin: 0px auto
+  padding: 0
+  background-color: #fff
+  border-radius: 4px
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33)
+  transition: all .3s ease
+  position: relative
+
+  .close
+    position: absolute
+    right: 10px
+    top: 7px
+    z-index: 1
+    cursor: pointer
+    width: 20px
+    height: 20px
+    color: #999
+    opacity: 0.7
+    font-size: 20px
+
+    &.iconfont:hover
+      opacity: 1
+      transition: all .3s
+
+  .modal-header
+    .modal-title
+      font-size: 16px
+      color: #333
+      padding: 10px 0 0 20px
+
+  .modal-body
+    box-sizing: border-box
+    padding: 20px
+
+    & > div
+      margin: 0 auto
+
+  .modal-footer
+    height: 50px
+    line-height: 50px
+    text-align: center
+    border-top: 1px solid #ccc
+    background: #f5f5f7
+    border-radius: 0 0 4px 4px
+
+    a
+      margin: 0 2px
+
+  .modal-default-button
+    float: right
+
+  .modal-enter
+    opacity: 0
+
+  .modal-leave-active
+    opacity: 0
+
+  .modal-enter .modal-container,
+  .modal-leave-active .modal-container
+    -webkit-transform: scale(1.1)
+    transform: scale(1.1)
+
+.modal-base
+  width: 340px
+  height: 200px
+  display: flex
+  flex-direction: column
+
+  .modal-body
+    display: flex
+    flex: 1
+    padding: 10px 20px 5px 20px
+    box-sizing: border-box
+    height: 150px
+    align-items: center
+    justify-content: center
+
+  .modal-footer
+    a
+      margin: 0 5px
+
+.modal-img
+  position: relative
+  display: flex
+  flex: 1
+  flex-direction: column
+  justify-content: center
+  width: 100%
+  height: 100%
+  -border: 3px solid red
+  overflow: auto
+  -webkit-user-select: none
+
+  &::-webkit-scrollbar-track
+    background-color: #fff
+
+  &::-webkit-scrollbar-thumb
+    background-color: #999
+    border-radius: 2px
+
+  \::-webkit-scrollbar-thumb:hover
+    background-color: #aeb1bc
+
+  img
+    align-self: center
+
+  .hf-img-loading
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: -25px
+    margin-left: -25px
+    height: 50px
+    width: 50px
+    animation: rotate 0.8s infinite linear
+    border: 5px solid #fff
+    border-right-color: transparent
+    border-radius: 50%
+
+  @keyframes rotate
+    0%
+      transform: rotate(0deg)
+
+    100%
+      transform: rotate(360deg)
+
+  .close
+    position: fixed
+    right: 20px
+    top: 20px
+    z-index: 3
+    width: 60px
+    height: 60px
+    line-height: 60px
+    border-radius: 50%
+    background-color: rgba(0, 0, 0, 0.4)
+    text-align: center
+    color: #fff
+    -webkit-user-select: none
+
+    &:hover
+      background: rgba(0, 0, 0, 0.8)
+      transition: background-color .3s
+
+    .iconfont
+      font-size: 24px
+
+  .img-prev, .img-next
+    position: fixed
+    top: 50%
+    width: 50px
+    height: 50px
+
+    .iconfont
+      color: #fff
+      font-size: 40px
+      opacity: 0.6
+
+      &:hover
+        opacity: 1
+
+  .img-prev
+    left: 20px
+
+  .img-next
+    right: 20px
+
+  .tool-bar
+    position: fixed
+    bottom: 30px
+    left: 50%
+    margin-left: -100px
+    width: 200px
+    height: 50px
+    text-align: center
+
+    > a.bottom
+      margin: 0 3px
+      display: inline-block
+      width: 45px
+      height: 45px
+      line-height: 45px
+      text-align: center
+      border-radius: 3px
+      color: #fff
+      background-color: rgba(0, 0, 0, 0.6)
+      -webkit-user-select: none
+
+      .iconfont
+        font-size: 22px
+        opacity: 0.7
+
+      &:hover
+        background: rgba(0, 0, 0, 0.8)
+        transition: background-color .3s
+
+        .iconfont
+          opacity: 1
+          transition: opacity .3s
+          color: #24b9fd
+  .max-height
+    max-height: 100%
+  .max-width
+    max-width: 100%
+.imgload
+  max-width: 100%

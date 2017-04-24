@@ -4,7 +4,7 @@ var modal = {
       name: 'title',
       type: 'String',
       default: '提示框',
-      description: `为多选框设置样式和外观风格`
+      description: `弹框抬头标题`
     },
     {
       name: 'show',

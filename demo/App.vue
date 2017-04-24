@@ -7,6 +7,9 @@
             <p class="menu-label">General</p>
             <ul class="menu-list">
               <li><router-link to="/btn" >btn</router-link></li>
+              <li><router-link to="/checkbox" >checkbox</router-link></li>
+              <li><router-link to="/radio" >radio</router-link></li>
+              <li><router-link to="/radiogroup" >radiogroup</router-link></li>
             </ul>
           </aside>
         </div>

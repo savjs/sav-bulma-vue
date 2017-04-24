@@ -1,4 +1,7 @@
 import Btn from '../components/Btn.vue'
+import Checkbox from '../components/Checkbox.vue'
+import Radio from '../components/Radio.vue'
+import Radiogroup from '../components/RadioGroup.vue'
 
 export function install (Vue) {
   Object.keys(components).forEach((it) => {
@@ -7,7 +10,10 @@ export function install (Vue) {
 }
 
 let components = {
-  Btn
+  Btn,
+  Checkbox,
+  Radio,
+  Radiogroup
 }
 
 Object.defineProperty(components, 'install', {
