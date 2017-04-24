@@ -1,4 +1,4 @@
-var btn = {
+var Badge = {
   props: [   
     {
       name: 'count',

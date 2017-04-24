@@ -18,7 +18,7 @@ var Icon = {
       default: '',
       description: `图标的大小`
     }
-  ]
+  ],
   examples: [
     {
       name: 'type',

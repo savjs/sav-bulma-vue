@@ -4,6 +4,9 @@ let theme = {
   checkbox: 'checkbox',
   radio: 'radio',
   radiogroup: 'radio-group',
+  BtnGroup: 'btn-group',
+  Badge: 'badge',
+  Icon: 'icon'
 }
 
 export default theme
