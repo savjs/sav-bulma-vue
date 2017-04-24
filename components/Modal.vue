@@ -22,44 +22,44 @@
 </template>
 <script>
     export default {
-        props:{
-          title:{
-            type:'String',
-            default: '提示框'
-          },
-          show:{
-            type: 'Boolean',
-            default: false
-          },
-          okText:{
-            type: 'String',
-            default: '确定'
-          },
-          cancelText:{
-            type: 'String',
-            default: '取消'
-          },
-          width:{
-            type: 'Number',
-            default:500 
-          },
-          scrollable:{
-            type: 'Boolean',
-            default: false
-          }
+      props: {
+        title: {
+          type: 'String',
+          default: '提示框'
         },
-        data () {
-            return {
-                modal1: false
-            }
+        show: {
+          type: 'Boolean',
+          default: false
         },
-        methods: {
-            ok () {
-                this.$Message.info('点击了确定');
-            },
-            cancel () {
-                this.$Message.info('点击了取消');
-            }
+        okText: {
+          type: 'String',
+          default: '确定'
+        },
+        cancelText: {
+          type: 'String',
+          default: '取消'
+        },
+        width: {
+          type: 'Number',
+          default: 500
+        },
+        scrollable: {
+          type: 'Boolean',
+          default: false
         }
+      },
+      data () {
+        return {
+          modal1: false
+        }
+      },
+      methods: {
+        ok () {
+          this.$Message.info('点击了确定')
+        },
+        cancel () {
+          this.$Message.info('点击了取消')
+        }
+      }
     }
 </script>

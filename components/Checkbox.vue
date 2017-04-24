@@ -14,14 +14,14 @@
     props: {
       value: {
         type: Boolean,
-        default: false,
+        default: false
       },
       disabled: {
         type: Boolean,
-        default: false,
-      },
+        default: false
+      }
     },
-    computed:{
+    computed: {
       checkboxClasses () {
         return [
           `hf-checkbox`,
@@ -32,16 +32,16 @@
         ]
       },
       innerClasses () {
-          return `hf-checkbox-inner`;
-      },
+        return `hf-checkbox-inner`
+      }
     },
     data () {
       return {
         theme,
-        currentValue: this.value,
+        currentValue: this.value
       }
     },
-    watch:{
+    watch: {
       value () {
         this.updateModel()
       }
@@ -50,11 +50,11 @@
       handleChange ($event) {
         if (this.disabled || $event.target.disabled) {
           $event.preventDefault()
-          return 
+          return
         }
-        
-        const checked = $event.target.checked;
-        this.currentValue = checked;
+  
+        const checked = $event.target.checked
+        this.currentValue = checked
         this.$emit('input', checked)
       },
       updateModel () {

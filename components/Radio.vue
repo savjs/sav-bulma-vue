@@ -14,22 +14,22 @@
     props: {
       value: {
         type: Boolean,
-        default: false,
+        default: false
       },
       disabled: {
         type: Boolean,
-        default: false,
+        default: false
       },
-      name:{
+      name: {
         type: String,
-        default:''
+        default: ''
       },
       trueValue: {
         type: [String, Number],
         default: ''
       }
     },
-    computed:{
+    computed: {
       radioClasses () {
         return [
           `hf-radio`,
@@ -40,16 +40,16 @@
         ]
       },
       innerClasses () {
-          return `hf-radio-inner`;
-      },
+        return `hf-radio-inner`
+      }
     },
     data () {
       return {
         theme,
-        currentValue: this.value,
+        currentValue: this.value
       }
     },
-    watch:{
+    watch: {
       value () {
         this.updateModel()
       }
@@ -58,12 +58,13 @@
       handleChange ($event) {
         if (this.disabled || $event.target.disabled) {
           $event.preventDefault()
-          return 
+          return
         }
-        
-        const checked = $event.target.checked;
-        this.currentValue = checked;
+  
+        const checked = $event.target.checked
+        this.currentValue = checked
         this.$emit('input', checked)
+        this.$emit('change', checked)
       },
       updateModel () {
         this.currentValue = this.value

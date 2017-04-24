@@ -3,7 +3,7 @@
     <label :class="[theme.radiogroup]" v-for="opt in options">
       <radio
         :name="name"
-        v-model = "opt.value"
+        :trueValue = "opt.value"
         :value="opt.value == value"
         :checked="opt.value == value"
         :disabled="opt.disabled"
@@ -17,12 +17,12 @@
     props: {
       options: {
         type: Array,
-        default: [],
+        default: []
       },
       value: {
         default: ''
       },
-      name:{
+      name: {
         default: ''
       }
     },
@@ -34,6 +34,7 @@
         if (this.disabled || $event.target.disabled) {
           $event.preventDefault()
         }
+  
         this.$emit('input', $event.target.value)
         this.$emit('change', $event.target.value)
       }
