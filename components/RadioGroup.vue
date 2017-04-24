@@ -4,8 +4,8 @@
       <radio
         :name="name"
         :trueValue = "opt.value"
-        :value="opt.value == value"
-        :checked="opt.value == value"
+        :value="opt.value == curValue"
+        :checked="opt.value == curValue"
         :disabled="opt.disabled"
         @change="handleChange" >{{opt.text}}</radio>
     </label>
@@ -27,16 +27,16 @@
       }
     },
     data () {
-      return {theme}
+      return {
+        theme,
+        curValue: this.value
+      }
     },
     methods: {
-      handleChange ($event) {
-        if (this.disabled || $event.target.disabled) {
-          $event.preventDefault()
-        }
-  
-        this.$emit('input', $event.target.value)
-        this.$emit('change', $event.target.value)
+      handleChange (value) {
+        this.curValue = value
+        this.$emit('input', value)
+        this.$emit('change', value)
       }
     }
   }

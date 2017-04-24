@@ -2,7 +2,7 @@
   <label :class="[theme.radio]">
     <span :class="radioClasses">
       <span :class="innerClasses"></span>
-      <input type="radio" :checked="currentValue" @change="handleChange" :disabled="disabled || null" :name="name"/>
+      <input type="radio" :checked="currentValue" @change="handleChange" :disabled="disabled || null" :name="name" :value="trueValue" />
     </span>
     <span class="radio-text"><slot></slot></span>
   </label>
@@ -63,8 +63,8 @@
   
         const checked = $event.target.checked
         this.currentValue = checked
-        this.$emit('input', checked)
-        this.$emit('change', checked)
+        this.$emit('input', this.trueValue)
+        this.$emit('change', this.trueValue)
       },
       updateModel () {
         this.currentValue = this.value
