@@ -3,9 +3,9 @@
     <label :class="[theme.radiogroup]" v-for="opt in options">
       <radio
         :name="name"
-        v-model = "opt.value"
-        :value="opt.value == value"
-        :checked="opt.value == value"
+        :trueValue = "opt.value"
+        :value="opt.value == curValue"
+        :checked="opt.value == curValue"
         :disabled="opt.disabled"
         @change="handleChange" >{{opt.text}}</radio>
     </label>
@@ -17,25 +17,26 @@
     props: {
       options: {
         type: Array,
-        default: [],
+        default: []
       },
       value: {
         default: ''
       },
-      name:{
+      name: {
         default: ''
       }
     },
     data () {
-      return {theme}
+      return {
+        theme,
+        curValue: this.value
+      }
     },
     methods: {
-      handleChange ($event) {
-        if (this.disabled || $event.target.disabled) {
-          $event.preventDefault()
-        }
-        this.$emit('input', $event.target.value)
-        this.$emit('change', $event.target.value)
+      handleChange (value) {
+        this.curValue = value
+        this.$emit('input', value)
+        this.$emit('change', value)
       }
     }
   }

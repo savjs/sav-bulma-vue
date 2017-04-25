@@ -2,7 +2,7 @@
   <label :class="[theme.radio]">
     <span :class="radioClasses">
       <span :class="innerClasses"></span>
-      <input type="radio" :checked="currentValue" @change="handleChange" :disabled="disabled || null" :name="name"/>
+      <input type="radio" :checked="currentValue" @change="handleChange" :disabled="disabled || null" :name="name" :value="trueValue" />
     </span>
     <span class="radio-text"><slot></slot></span>
   </label>
@@ -14,22 +14,22 @@
     props: {
       value: {
         type: Boolean,
-        default: false,
+        default: false
       },
       disabled: {
         type: Boolean,
-        default: false,
+        default: false
       },
-      name:{
+      name: {
         type: String,
-        default:''
+        default: ''
       },
       trueValue: {
         type: [String, Number],
         default: ''
       }
     },
-    computed:{
+    computed: {
       radioClasses () {
         return [
           `hf-radio`,
@@ -40,16 +40,16 @@
         ]
       },
       innerClasses () {
-          return `hf-radio-inner`;
-      },
+        return `hf-radio-inner`
+      }
     },
     data () {
       return {
         theme,
-        currentValue: this.value,
+        currentValue: this.value
       }
     },
-    watch:{
+    watch: {
       value () {
         this.updateModel()
       }
@@ -58,12 +58,13 @@
       handleChange ($event) {
         if (this.disabled || $event.target.disabled) {
           $event.preventDefault()
-          return 
+          return
         }
-        
-        const checked = $event.target.checked;
-        this.currentValue = checked;
-        this.$emit('input', checked)
+  
+        const checked = $event.target.checked
+        this.currentValue = checked
+        this.$emit('input', this.trueValue)
+        this.$emit('change', this.trueValue)
       },
       updateModel () {
         this.currentValue = this.value
