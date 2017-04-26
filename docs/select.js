@@ -4,7 +4,13 @@ var select = {
             name: 'value',
             type: 'String | Number | Array',
             default: 'one',
-            description: `	指定选中项目的 value 值，可以使用 v-model 双向绑定数据。单选时只接受 String 或 Number，多选时只接受 Array`
+            description: `指定选中项目的 value 值，可以使用 v-model 双向绑定数据。单选时只接受 String 或 Number，多选时只接受 Array`
+        },
+        {
+            name: 'option',
+            type: 'Array',
+            default: [],
+            description: `可供选择的option对象[{text:'足球',value:1}]`
         },
         {
             name: 'multiple',
