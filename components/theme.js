@@ -4,7 +4,7 @@ let theme = {
   checkbox: 'checkbox',
   radio: 'radio',
   radiogroup: 'radio-group',
-  modal:'modal',
+  modal: 'modal',
   BtnGroup: 'btn-group',
   Badge: 'badge',
   Icon: 'icon'
