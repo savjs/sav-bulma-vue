@@ -53,11 +53,11 @@ var modal = {
   ],
   events: [
       {
-          name: 'on-ok',
+          name: 'onok',
           description: `点击确定的回调`
       },
       {
-          name: 'on-cancel',
+          name: 'oncancel',
           description: `点击取消的回调`
       },
       {
@@ -75,7 +75,7 @@ var modal = {
           description: `关闭弹框`
       },
       {
-          name: 'show',
+          name: 'open',
           description: `显示弹框`
       }
   ],
