@@ -1,7 +1,7 @@
 <template>
   <div>
       <Badge count="100">
-        <btn href="#" class="demo-badge">00</btn>
+        <a  class="demo-badge">00</a>
       </Badge>
   </div>
 </template>

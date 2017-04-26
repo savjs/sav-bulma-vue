@@ -4,7 +4,8 @@ var gulp = require('gulp-param')(require('gulp'), process.argv),
   gutil = require('gulp-util'),
  // gulpLog = require('gulp-log'),
   rimraf = require('rimraf'),
-  sass = require('gulp-sass')
+  sass = require('gulp-sass'),
+  path = require('path')
 
 var paths = {
   scss: [
@@ -24,7 +25,12 @@ gulp.task('del', function () {
 
 gulp.task('sass', function () {
   return gulp.src(paths.scss)
-        .pipe(sass({style: 'expanded'}))
+        .pipe(sass({
+            style: 'expanded',
+            includePaths: [
+                path.resolve(__dirname, './node_modules/bulma')
+            ]
+        }))
         .on('error', handleSassError)
         .pipe(gulp.dest('./dist/static/css'))
 })

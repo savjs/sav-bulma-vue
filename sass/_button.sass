@@ -1,78 +1,81 @@
 //common button default background color blue
-.hf-button
-  display: inline-block
-  padding: 0 10px
-  height: 28px
-  line-height: 28px
-  text-align: center
-  vertical-align: middle
-  cursor: pointer
-  background: $default-color-blue
-  color: $whiteColor
-  border-radius: $radius
-  border: none
-  min-width: 80px
+// Colors
+$sav-color-blue: $sav-blue !default
+// Link colors
+$sav-button-hover: $sav-link-hover !default
+$sav-button-border: $sav-link-hover !default
 
-  +make-font-family
 
-  -webkit-user-select: none
+$sav-button-active: $sav-link-active !default
+$sav-button-active-border: $sav-link-active-border !default
 
-  &:hover
-    transition: all 0.2s
-    background: $default-color-blue-hover
+$sav-button-shadow-inset: inset 0 1px 2px rgba($sav-blue, 0.2) !default
+// The button sizes use mixins so they can be used at different breakpoints
+=button-small
+  border-radius: $radius-small
+  font-size: $size-small
+=button-medium
+  font-size: $size-medium
+=button-large
+  font-size: $size-large
 
-  &.topbar-button
-    height: 24px
-    line-height: 24px
-    position: relative
-    top: -1px
-
-//bg gree
-.button-green
-  background: $default-color-green
-
-  &:hover
-    background: $default-color-green-hover
-
-//bg red
-.button-red
-  background: #ff6464
-
-  &:hover
-    background: #ff8b8b
-
-//bg white
-.button-white
-  background: $whiteColor
-  border: solid 1px #d0d5e6
-  color: #333
-
-  &:hover
-    border: solid 1px $default-color-blue-hover
-    color: #fff
-
-.blue-button
-  background: $whiteColor
-  color: $default-color-blue
-  border: solid 1px $default-color-blue-hover
-
-  &:hover
-    background: $default-color-blue-hover
-    color: $whiteColor
-
-.button-size-big
-  min-width: 160px
-  padding: 0 10px
-  height: 40px
-  text-align: center
-  line-height: 40px
-  font-size: 14px
-
-.button-pure-bule
-  background-color: #00aaff
-  color: $whiteColor
-  border: solid 1px #00aaff
-  &:hover
-    background-color: $default-color-blue-hover
-    border: solid 1px $default-color-blue-hover
-    color: $whiteColor
+.is-sav-btn
+  background-color: $sav-color-blue
+  border-color: $sav-color-blue
+  color: $white
+  font-size: $size-7  
+  padding: 0 1.25em
+  height: 2.5em 
+  .icon
+    &,
+    &.is-small,
+    &.is-medium,
+    &.is-large
+      
+    &:first-child:not(:last-child)
+      margin-left: calc(-0.375em - 1px)
+      margin-right: 0.1875em
+    &:last-child:not(:first-child)
+      margin-left: 0.1875em
+      margin-right: calc(-0.375em - 1px)
+    &:first-child:last-child
+      margin-left: calc(-0.375em - 1px)
+      margin-right: calc(-0.375em - 1px)
+  // States
+  &:hover,
+  &.is-hovered
+    border-color: $sav-button-hover
+    color: $white
+    background: $sav-button-hover
+  
+  &:active,
+  &.is-active  
+    border-color: $sav-button-active
+    box-shadow: $sav-button-shadow-inset
+    color: $white
+    background: $sav-button-active
+  // Colors
+  &.is-link
+    background-color: transparent
+    border-color: transparent
+    color: $text
+    text-decoration: underline
+    &:hover,
+    &.is-hovered,
+    &:focus,
+    &.is-focused,
+    &:active,
+    &.is-active
+      background-color: $background
+      color: $text-strong
+    &[disabled]
+      background-color: transparent
+      border-color: transparent
+      box-shadow: none
+  
+// Adjustment for vertical spacing
+button.button,
+input[type="submit"].button
+  line-height: 1
+  padding-bottom: 0.4em
+  padding-top: 0.4em

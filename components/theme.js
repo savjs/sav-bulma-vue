@@ -1,6 +1,6 @@
 
 let theme = {
-  btn: 'button',
+  btn: 'button is-sav-btn',
   checkbox: 'checkbox',
   radio: 'radio',
   radiogroup: 'radio-group',
