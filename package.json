@@ -5,6 +5,7 @@
   "main": "dist/sav-bulma-vue.cjs.js",
   "scripts": {
     "demo-build": "rollup -c ./demo/rollup.config.js",
+    "site": "rollup -c ./site/rollup.config.js",
     "start": "watch -p \"+(components|src)/*.(js|vue)\" -c \"npm run lint -- --fix && npm test\"",
     "build": "rollup -c",
     "lint": "standard rollup.config.js components/** src/**",
