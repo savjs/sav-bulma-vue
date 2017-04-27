@@ -1,5 +1,5 @@
 <template>
-  <div class="control has-addons">
+  <div :class="[theme.btngroup]" >
     <slot></slot>
   </div>
 </template>
@@ -12,13 +12,7 @@
       return {theme}
     },
     methods: {
-      handleChange ($event) {
-        if (this.disabled || $event.target.disabled) {
-          $event.preventDefault()
-        }
-        this.$emit('input', $event.target.value)
-        this.$emit('change', $event.target.value)
-      }
+     
     }
   }
 </script>

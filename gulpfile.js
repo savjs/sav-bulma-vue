@@ -10,7 +10,7 @@ var gulp = require('gulp-param')(require('gulp'), process.argv),
 var paths = {
   scss: [
     './sass/*.sass',
-    './sass/**/*.sass',
+    
   ]
 }
 
@@ -27,9 +27,9 @@ gulp.task('sass', function () {
   return gulp.src(paths.scss)
         .pipe(sass({
             style: 'expanded',
-            includePaths: [
-                path.resolve(__dirname, './node_modules/bulma')
-            ]
+            //includePaths: [
+                //path.resolve(__dirname, './node_modules/bulma')
+           // ]
         }))
         .on('error', handleSassError)
         .pipe(gulp.dest('./dist/static/css'))
