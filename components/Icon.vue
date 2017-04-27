@@ -5,31 +5,31 @@
 
 </template>
 <script>
-    const prefixCls = 'fa';
-    export default {
-        name: 'Icon',
-        props: {
-            type: String,
-            size: [Number, String],
-            color: String
+    const prefixCls = 'fa'
+export default {
+      name: 'Icon',
+      props: {
+        type: String,
+        size: [Number, String],
+        color: String
+      },
+      computed: {
+        classes () {
+          return `${prefixCls} ${prefixCls}-${this.type}`
         },
-        computed: {
-            classes () {
-                return `${prefixCls} ${prefixCls}-${this.type}`;
-            },
-            styles () {
-                let style = {};
+        styles () {
+          let style = {}
 
-                if (this.size) {
-                    style['font-size'] = `${this.size}px`;
-                }
+          if (this.size) {
+            style['font-size'] = `${this.size}px`
+          }
 
-                if (this.color) {
-                    style.color = this.color;
-                }
+          if (this.color) {
+            style.color = this.color
+          }
 
-                return style;
-            }
+          return style
         }
-    };
+      }
+    }
 </script>

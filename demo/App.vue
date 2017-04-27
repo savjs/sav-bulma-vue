@@ -10,6 +10,7 @@
               <li><router-link to="/checkbox" >checkbox</router-link></li>
               <li><router-link to="/radio" >radio</router-link></li>
               <li><router-link to="/radiogroup" >radiogroup</router-link></li>
+              <li><router-link to="/modal" >Modal</router-link></li>
                <li><router-link to="/BtnGroup" >BtnGroup</router-link></li>
               <li><router-link to="/Icon" >Icon</router-link></li>
               <li><router-link to="/Badge" >Badge</router-link></li>
