@@ -10,7 +10,7 @@ var gulp = require('gulp-param')(require('gulp'), process.argv),
 var paths = {
   scss: [
     './sass/*.sass',
-    './sass/**/*.sass'
+    './sass/**/*.sass',
   ]
 }
 
