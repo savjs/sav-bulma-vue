@@ -32,15 +32,15 @@
     computed: {
       radioClasses () {
         return [
-          `hf-radio`,
+          `sav-radio`,
           {
-            [`hf-radio-checked`]: this.currentValue,
-            [`hf-radio-disabled`]: this.disabled
+            [`sav-radio-checked`]: this.currentValue,
+            [`sav-radio-disabled`]: this.disabled
           }
         ]
       },
       innerClasses () {
-        return `hf-radio-inner`
+        return `sav-radio-inner`
       }
     },
     data () {

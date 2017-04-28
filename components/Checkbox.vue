@@ -24,15 +24,15 @@
     computed: {
       checkboxClasses () {
         return [
-          `hf-checkbox`,
+          `sav-checkbox`,
           {
-            [`hf-checkbox-checked`]: this.currentValue,
-            [`hf-checkbox-disabled`]: this.disabled
+            [`sav-checkbox-checked`]: this.currentValue,
+            [`sav-checkbox-disabled`]: this.disabled
           }
         ]
       },
       innerClasses () {
-        return `hf-checkbox-inner`
+        return `sav-checkbox-inner`
       }
     },
     data () {
