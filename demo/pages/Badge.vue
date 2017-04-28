@@ -1,7 +1,12 @@
 <template>
   <div>
-      <Badge count="100">
-        <a  class="demo-badge">00</a>
+      <Badge count="3">
+        <a  class="demo-badge"></a>
+      </Badge>
+      <Badge dot>
+        <span class="icon">
+            <Icon class="fa-github"></Icon>
+        </span> 
       </Badge>
   </div>
 </template>
@@ -14,3 +19,4 @@
     }
   }
 </script>
+

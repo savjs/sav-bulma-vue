@@ -2,7 +2,7 @@
   <router-link v-if="to" :class="[theme.btn]" :to="to" @click="handleClick"  :disabled="disabled || null">
     <slot></slot>
   </router-link>
-  <button v-else :class="[theme.btn]"  @click="handleClick" :disabled="disabled || null">
+  <button v-else :class="[theme.btn ]"  @click="handleClick" :disabled="disabled || null">
     <slot></slot>
   </button>
 </template>
