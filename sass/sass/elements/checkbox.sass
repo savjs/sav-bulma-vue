@@ -1,0 +1,60 @@
+.sav-checkbox
+  white-space: nowrap
+  cursor: pointer
+  outline: none
+  display: inline-block
+  line-height: 1
+  position: relative
+  vertical-align: middle
+  margin-left: 15px
+  input[type="checkbox"]
+    cursor: pointer
+    opacity: 0
+    outline: none!important
+    position: absolute
+  .sav-checkbox-inner
+    z-index: 1
+    display: inline-block
+    border: 1px solid #bfcbd9
+    border-radius: 100%
+    width: 18px
+    height: 18px
+    border-radius: 4px
+    background-color: #fff
+    position: relative
+    cursor: pointer
+    box-sizing: border-box   
+    transition: border-color .25s cubic-bezier(.71,-.46,.29,1.46),background-color .25s cubic-bezier(.71,-.46,.29,1.46)
+    &:after
+      box-sizing: content-box
+      content: ""
+      border: 2px solid #fff
+      border-left: 0
+      border-top: 0
+      height: 8px
+      left: 5px
+      position: absolute
+      top: 1px
+      transform: rotate(45deg) scaleY(0)
+      width: 4px
+      transition: transform .15s cubic-bezier(.71,-.46,.88,.6) .05s
+      transform-origin: center
+  
+  &.sav-checkbox-checked .sav-checkbox-inner
+    border-color: #20a0ff
+    background: #20a0ff
+  &.sav-checkbox-checked .sav-checkbox-inner:after
+    transform: rotate(45deg) scaleY(1)
+  &.is-primary.sav-checkbox-checked:after
+    color: #fff
+.check-text
+  font-size: 14px
+  padding-left: 5px
+
+
+.radio-button
+  input[type="checkbox"]
+    cursor: pointer
+    opacity: 0
+    outline: none!important
+    position: absolute
