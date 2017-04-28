@@ -19,10 +19,10 @@ var radiogroup = {
       description: `列表选项(详细)`
     }
   ],
-  events:{
+  events:[{
     name: 'change',
     description: `在选项状态发生改变时触发，同 input[type=radio] 元素的change事件一致，传入 value 属性值`
-  },
+  }],
   examples: [
     {
       name: 'value',

@@ -2,7 +2,7 @@ import Index from './Index.vue'
 
 export default [
   {
-    path: '/:component',
+    path: '/:component?',
     component: Index
   }
 ]

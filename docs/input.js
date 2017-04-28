@@ -130,3 +130,5 @@ var input = {
         },
     ]
 }
+
+export {input}

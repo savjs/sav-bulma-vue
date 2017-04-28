@@ -11,7 +11,7 @@ var radio = {
       type: 'String',
       default: '',
       description: `相当于 input[type=radio] 元素的 name 属性`
-    }
+    },
     {
       name: 'disabled',
       type: 'Boolean',

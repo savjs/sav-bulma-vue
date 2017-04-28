@@ -1,26 +1,36 @@
 <template>
-  <div class="section">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-2">
-          <aside class="menu">
-            <p class="menu-label">General</p>
-            <ul class="menu-list">
-              <li><router-link to="/btn" >btn</router-link></li>
-              <li><router-link to="/checkbox" >checkbox</router-link></li>
-              <li><router-link to="/radio" >radio</router-link></li>
-              <li><router-link to="/radiogroup" >radiogroup</router-link></li>
-              <li><router-link to="/modal" >Modal</router-link></li>
-               <li><router-link to="/BtnGroup" >BtnGroup</router-link></li>
-              <li><router-link to="/Icon" >Icon</router-link></li>
-              <li><router-link to="/Badge" >Badge</router-link></li>
-            </ul>
-          </aside>
-        </div>
-        <div class="column"><router-view></router-view></div>
-      </div>
+<section class="is-sav-theme">
+<section class="hero is-large">
+<div class="hero-head ">
+  <header class="nav is-sav-nav">
+  <div class="container">
+    <div class="nav-left">
+      <a class="nav-item is-sav-nav-img">
+      <!--img src="logo.jpg" alt="Logo"-->
+      </a>
+    </div>
+    <span class="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+    </span>
+    <div class="nav-right nav-menu is-sav-nav-menu">
+      <a class="nav-item is-sav-nav-item is-tab is-hidden-mobile is-sav-item-active">
+              文档
+      </a>
+      <a class="nav-item is-sav-nav-item is-tab is-hidden-mobile">
+              demo
+      </a>
+      <a class="nav-item" href="https://github.com/savjs/sav-bulma-vue">
+      <span class="icon"><i class="fa fa-github"></i></span>
+      </a>
     </div>
   </div>
+  </header>
+</div>
+</section>
+<router-view></router-view>
+</section>
 </template>
 <script>
   export default {
