@@ -14,6 +14,8 @@
                <li><router-link to="/BtnGroup" >BtnGroup</router-link></li>
               <li><router-link to="/Icon" >Icon</router-link></li>
               <li><router-link to="/Badge" >Badge</router-link></li>
+              <li><router-link to="/SavInput" >Input</router-link></li>
+              <li><router-link to="/SavSelect" >Select</router-link></li>
             </ul>
           </aside>
         </div>

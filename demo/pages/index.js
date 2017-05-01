@@ -6,6 +6,8 @@ import modal from './modal.vue'
 import BtnGroup from './BtnGroup.vue'
 import Badge from './Badge.vue'
 import Icon from './Icon.vue'
+import SavInput from './SavInput.vue'
+import SavSelect from './SavSelect.vue'
 export default [
   {
     path: '/btn',
@@ -38,5 +40,13 @@ export default [
   {
     path: '/Icon',
     component: Icon
+  },
+  {
+    path: '/SavInput',
+    component: SavInput
+  },
+  {
+    path: '/SavSelect',
+    component: SavSelect
   }
 ]

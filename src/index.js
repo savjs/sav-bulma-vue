@@ -6,6 +6,8 @@ import Modal from '../components/Modal.vue'
 import BtnGroup from '../components/BtnGroup.vue'
 import Badge from '../components/Badge.vue'
 import Icon from '../components/Icon.vue'
+import SavInput from '../components/SavInput.vue'
+import SavSelect from '../components/SavSelect.vue'
 
 export function install (Vue) {
   Object.keys(components).forEach((it) => {
@@ -21,7 +23,9 @@ let components = {
   Modal,
   Icon,
   BtnGroup,
-  Badge
+  Badge,
+  SavInput,
+  SavSelect
 }
 
 Object.defineProperty(components, 'install', {
