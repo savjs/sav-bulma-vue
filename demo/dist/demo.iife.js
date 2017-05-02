@@ -11,8 +11,8 @@ let theme = {
   radiogroup: 'radio-group',
   modal: 'modal',
   BtnGroup: 'btn-group',
-  Badge: 'badge',
-  Icon: 'icon'
+  badge: 'badge',
+  icon: 'fa '
 };
 
 var Btn = {
@@ -57,13 +57,13 @@ var Checkbox = {
   },
   computed: {
     checkboxClasses() {
-      return [`hf-checkbox`, {
-        [`hf-checkbox-checked`]: this.currentValue,
-        [`hf-checkbox-disabled`]: this.disabled
+      return [`sav-checkbox`, {
+        [`sav-checkbox-checked`]: this.currentValue,
+        [`sav-checkbox-disabled`]: this.disabled
       }];
     },
     innerClasses() {
-      return `hf-checkbox-inner`;
+      return `sav-checkbox-inner`;
     }
   },
   data() {
@@ -119,13 +119,13 @@ var Radio = {
   },
   computed: {
     radioClasses() {
-      return [`hf-radio`, {
-        [`hf-radio-checked`]: this.currentValue,
-        [`hf-radio-disabled`]: this.disabled
+      return [`sav-radio`, {
+        [`sav-radio-checked`]: this.currentValue,
+        [`sav-radio-disabled`]: this.disabled
       }];
     },
     innerClasses() {
-      return `hf-radio-inner`;
+      return `sav-radio-inner`;
     }
   },
   data() {
@@ -269,7 +269,7 @@ var Modal = {
       this.close();
     },
     handleWrapClick(event) {
-      //const className = event.target.getAttribute('class');
+      // const className = event.target.getAttribute('class');
       // if (className && className.indexOf(`${prefixCls}-wrap`) > -1) this.mask();
     },
     EscClose(e) {
@@ -284,123 +284,199 @@ var Modal = {
 
 var BtnGroup = {
   render: function () {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "control has-addons" }, [_vm._t("default")], 2);
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { class: [_vm.theme.btngroup] }, [_vm._t("default")], 2);
   },
   staticRenderFns: [],
 
   data() {
     return { theme };
   },
-  methods: {
-    handleChange($event) {
-      if (this.disabled || $event.target.disabled) {
-        $event.preventDefault();
+  methods: {}
+};
+
+/**
+ * Badge 徽标数
+ * @param dot {Object}  小红点
+ * @param count  {Number} 显示的数字
+ */
+var Badge = {
+  render: function () {
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _vm.dot ? _c('span', { class: [_vm.theme.badge], attrs: { "dot": _vm.dot } }, [_vm._t("default"), _vm._v(" "), _c('sup', { directives: [{ name: "show", rawName: "v-show", value: _vm.badge, expression: "badge" }], staticClass: "badge-dot" })], 2) : _c('span', { class: [_vm.theme.badge] }, [_vm._t("default"), _vm._v(" "), _vm.count ? _c('sup', { directives: [{ name: "show", rawName: "v-show", value: _vm.badge, expression: "badge" }], staticClass: "badge-count" }, [_vm._v(_vm._s(_vm.finalCount))]) : _vm._e()], 2);
+  },
+  staticRenderFns: [],
+  name: 'Badge',
+  props: {
+    count: [Number, String], // 显示的数字，大于overflowCount时，显示${overflowCount}+，为 0 时隐藏
+    dot: {
+      type: Boolean, // 不展示数字，只有一个小红点，如需隐藏 dot ，需要设置count为 0
+      default: false
+    },
+    overflowCount: { // 展示封顶的数字值
+      type: [Number, String],
+      default: 99
+    }
+  },
+  computed: {
+    finalCount() {
+      return parseInt(this.count) >= parseInt(this.overflowCount) ? `${this.overflowCount}+` : this.count;
+    },
+    badge() {
+      let status = false;
+      if (this.count) {
+        status = !(parseInt(this.count) === 0);
       }
-      this.$emit('input', $event.target.value);
-      this.$emit('change', $event.target.value);
+      if (this.dot) {
+        status = true;
+        if (this.count) {
+          if (parseInt(this.count) === 0) {
+            status = false;
+          }
+        }
+      }
+      return status;
+    }
+  },
+  data() {
+    return {
+      theme,
+      alone: false
+    };
+  },
+  mounted() {
+    const child_length = this.$refs.badge.children.length;
+    if (child_length === 1) {
+      this.alone = true;
     }
   }
 };
 
-const prefixCls = 'badge';
-var Badge = {
+var Icon = {
     render: function () {
-        var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _vm.dot ? _c('span', { ref: "badge", class: _vm.classes }, [_vm._t("default"), _vm._v(" "), _c('sup', { directives: [{ name: "show", rawName: "v-show", value: _vm.badge, expression: "badge" }], class: _vm.dotClasses })], 2) : _c('span', { ref: "badge", class: _vm.classes }, [_vm._t("default"), _vm._v(" "), _vm.count ? _c('sup', { directives: [{ name: "show", rawName: "v-show", value: _vm.badge, expression: "badge" }], class: _vm.countClasses }) : _vm._e()], 2);
+        var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('i', { class: [_vm.theme.icon] });
     },
     staticRenderFns: [],
     props: {
-        count: [Number, String],
-        dot: {
-            type: Boolean,
-            default: false
-        },
-        overflowCount: {
-            type: [Number, String],
-            default: 99
-        },
-        className: String
+        icon: {
+            type: String,
+            default: ''
+        }
     },
     data() {
         return { theme };
     },
-    computed: {
-        classes() {
-            return `${prefixCls}`;
-        },
-        dotClasses() {
-            return `${prefixCls}-dot`;
-        },
-        countClasses() {
-            return [`${prefixCls}-count`, {
-                [`${this.className}`]: !!this.className,
-                [`${prefixCls}-count-alone`]: this.alone
-            }];
-        },
-        finalCount() {
-            return parseInt(this.count) >= parseInt(this.overflowCount) ? `${this.overflowCount}+` : this.count;
-        },
-        badge() {
-            let status = false;
-
-            if (this.count) {
-                status = !(parseInt(this.count) === 0);
-            }
-
-            if (this.dot) {
-                status = true;
-                if (this.count) {
-                    if (parseInt(this.count) === 0) {
-                        status = false;
-                    }
-                }
-            }
-
-            return status;
-        }
-    },
-    data() {
-        return {
-            alone: false
-        };
-    },
-    mounted() {
-        const child_length = this.$refs.badge.children.length;
-        if (child_length === 1) {
-            this.alone = true;
-        }
-    }
+    methods: {}
 };
 
-const prefixCls$1 = 'fa';
-var Icon = {
-    render: function () {
-        var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('span', { staticClass: "icon" }, [_c('i', { class: _vm.classes, style: _vm.styles })]);
+let lang = {
+  InputPlaceholder: '请输入',
+  SelectPlaceholder: '请选择'
+};
+
+var SavInput = {
+  render: function () {
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "field" }, [_c('p', { class: { 'control': true, 'has-icons-left': _vm.hasIconsLeft, 'has-icons-right': _vm.hasIconsRight } }, [_c('input', { staticClass: "input", attrs: { "type": _vm.type, "name": _vm.name, "placeholder": _vm.placeholder, "disabled": _vm.disabled || null, "maxlength": _vm.maxlength, "minlength": _vm.minlength, "readonly": _vm.readonly }, domProps: { "value": _vm.value }, on: { "click": _vm.handlClick } }), _vm._v(" "), _vm._t("leftIcon"), _vm._v(" "), _vm._t("rightIcon")], 2)]);
+  },
+  staticRenderFns: [],
+  props: {
+    name: {
+      type: String,
+      default: ""
     },
-    staticRenderFns: [],
-    name: 'Icon',
-    props: {
-        type: String,
-        size: [Number, String],
-        color: String
+    value: {
+      type: String,
+      default: ""
     },
-    computed: {
-        classes() {
-            return `${prefixCls$1} ${prefixCls$1}-${this.type}`;
-        },
-        styles() {
-            let style = {};
-
-            if (this.size) {
-                style['font-size'] = `${this.size}px`;
-            }
-
-            if (this.color) {
-                style.color = this.color;
-            }
-
-            return style;
-        }
+    type: {
+      type: String,
+      default: "text"
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    placeholder: {
+      type: String,
+      default: lang.InputPlaceholder
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    },
+    maxlength: {
+      type: Number,
+      default: 36
+    },
+    minlength: {
+      type: Number,
+      default: 0
     }
+  },
+  data() {
+    return {
+      lang,
+      hasIconsLeft: false,
+      hasIconsRight: false
+    };
+  },
+  computed: {},
+  mounted() {
+    this.hasIconsLeft = this.$el.querySelector(".is-left") === null ? false : true;
+    this.hasIconsRight = this.$el.querySelector(".is-right") === null ? false : true;
+  },
+  methods: {
+    handleClick($event) {
+      if (this.disabled || $event.target.disabled) {
+        $event.preventDefault();
+      }
+      this.$emit('value', this.value);
+    }
+  }
+};
+
+var SavSelect = {
+  render: function () {
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "field" }, [_c('p', { staticClass: "control" }, [_c('span', { staticClass: "select" }, [_c('select', { attrs: { "name": _vm.name, "v-model": _vm.value, "disabled": _vm.disabled, "readonly": _vm.readonly }, on: { "change": _vm.handleChange } }, _vm._l(_vm.options, function (option, index) {
+      return _c('option', { domProps: { "value": option.value, "selected": option.value == _vm.value } }, [_vm._v(_vm._s(option.text))]);
+    }))])])]);
+  },
+  staticRenderFns: [],
+  props: {
+    name: {
+      type: String,
+      default: ""
+    },
+    value: {
+      type: String,
+      default: ""
+    },
+    options: {
+      type: Array,
+      default: []
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    placeholder: {
+      type: Object,
+      default: { value: "0", text: '请选择' }
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {};
+  },
+  created() {
+    this.options.unshift(this.placeholder);
+  },
+  methods: {
+    handleChange() {
+      this.$emit('value', this.value);
+    }
+  }
 };
 
 function install(Vue$$1) {
@@ -417,7 +493,9 @@ let components = {
   Modal,
   Icon,
   BtnGroup,
-  Badge
+  Badge,
+  SavInput,
+  SavSelect
 };
 
 Object.defineProperty(components, 'install', {
@@ -428,7 +506,7 @@ Object.defineProperty(components, 'install', {
 
 var App = {
   render: function () {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "section" }, [_c('div', { staticClass: "container" }, [_c('div', { staticClass: "columns" }, [_c('div', { staticClass: "column is-2" }, [_c('aside', { staticClass: "menu" }, [_c('p', { staticClass: "menu-label" }, [_vm._v("General")]), _vm._v(" "), _c('ul', { staticClass: "menu-list" }, [_c('li', [_c('router-link', { attrs: { "to": "/btn" } }, [_vm._v("btn")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/checkbox" } }, [_vm._v("checkbox")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/radio" } }, [_vm._v("radio")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/radiogroup" } }, [_vm._v("radiogroup")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/modal" } }, [_vm._v("Modal")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/BtnGroup" } }, [_vm._v("BtnGroup")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/Icon" } }, [_vm._v("Icon")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/Badge" } }, [_vm._v("Badge")])], 1)])])]), _vm._v(" "), _c('div', { staticClass: "column" }, [_c('router-view')], 1)])])]);
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "section" }, [_c('div', { staticClass: "container" }, [_c('div', { staticClass: "columns" }, [_c('div', { staticClass: "column is-2" }, [_c('aside', { staticClass: "menu" }, [_c('p', { staticClass: "menu-label" }, [_vm._v("General")]), _vm._v(" "), _c('ul', { staticClass: "menu-list" }, [_c('li', [_c('router-link', { attrs: { "to": "/btn" } }, [_vm._v("btn")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/checkbox" } }, [_vm._v("checkbox")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/radio" } }, [_vm._v("radio")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/radiogroup" } }, [_vm._v("radiogroup")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/modal" } }, [_vm._v("Modal")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/BtnGroup" } }, [_vm._v("BtnGroup")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/Icon" } }, [_vm._v("Icon")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/Badge" } }, [_vm._v("Badge")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/SavInput" } }, [_vm._v("Input")])], 1), _vm._v(" "), _c('li', [_c('router-link', { attrs: { "to": "/SavSelect" } }, [_vm._v("Select")])], 1)])])]), _vm._v(" "), _c('div', { staticClass: "column" }, [_c('router-view')], 1)])])]);
   },
   staticRenderFns: []
 
@@ -438,9 +516,21 @@ var btn = {
   render: function () {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('btn', { nativeOn: { "click": function ($event) {
           _vm.click($event);
-        } } }, [_vm._v("常规按钮")]), _vm._v(" "), _c('btn', { staticClass: "is-large", nativeOn: { "click": function ($event) {
+        } } }, [_vm._v("常规按钮")]), _vm._v(" "), _c('btn', { staticClass: "is-primary", nativeOn: { "click": function ($event) {
           _vm.click($event);
-        } } }, [_vm._v("大按钮")])], 1);
+        } } }, [_vm._v("Primary")]), _vm._v(" "), _c('btn', { staticClass: "is-info", nativeOn: { "click": function ($event) {
+          _vm.click($event);
+        } } }, [_vm._v("info")]), _vm._v(" "), _c('btn', { staticClass: "is-success", nativeOn: { "click": function ($event) {
+          _vm.click($event);
+        } } }, [_vm._v("success")]), _vm._v(" "), _c('btn', { staticClass: "is-warning", nativeOn: { "click": function ($event) {
+          _vm.click($event);
+        } } }, [_vm._v("warning")]), _vm._v(" "), _c('btn', { staticClass: "is-danger", nativeOn: { "click": function ($event) {
+          _vm.click($event);
+        } } }, [_vm._v("danger")]), _vm._v(" "), _c('btn', { staticClass: "is-primary is-loading", nativeOn: { "click": function ($event) {
+          _vm.click($event);
+        } } }, [_vm._v("loading")]), _vm._v(" "), _c('btn', { staticClass: "is-primary is-disabled", nativeOn: { "click": function ($event) {
+          _vm.click($event);
+        } } }, [_vm._v("disabled")])], 1);
   },
   staticRenderFns: [],
   methods: {
@@ -488,7 +578,7 @@ var radiogroup = {
 
 var modal = {
   render: function () {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('modal', { attrs: { "show": true } }, [_vm._v("xxxx")])], 1);
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('modal', { attrs: { "show": true } }, [_vm._v("xxxx")]), _vm._v(" "), _c('btn')], 1);
   },
   staticRenderFns: [],
   methods: {
@@ -500,11 +590,11 @@ var modal = {
 
 var BtnGroup$1 = {
   render: function () {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('Btn-group', [_c('btn', { nativeOn: { "click": function ($event) {
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('Btn-group', { staticClass: "control has-addons" }, [_c('btn', { nativeOn: { "click": function ($event) {
           _vm.click($event);
         } } }, [_vm._v("常规按钮")]), _vm._v(" "), _c('btn', { nativeOn: { "click": function ($event) {
           _vm.click($event);
-        } } }, [_vm._v("常规按钮")]), _vm._v(" "), _c('btn', { nativeOn: { "click": function ($event) {
+        } } }, [_vm._v("常规按钮")]), _vm._v(" "), _c('btn', { staticClass: "is-success", nativeOn: { "click": function ($event) {
           _vm.click($event);
         } } }, [_vm._v("常规按钮")])], 1)], 1);
   },
@@ -518,7 +608,7 @@ var BtnGroup$1 = {
 
 var Badge$1 = {
   render: function () {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('Badge', { attrs: { "count": "100" } }, [_c('btn', { staticClass: "demo-badge", attrs: { "href": "#" } }, [_vm._v("00")])], 1)], 1);
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('Badge', { attrs: { "count": "3" } }, [_c('a', { staticClass: "demo-badge" })]), _vm._v(" "), _c('Badge', { attrs: { "dot": "" } }, [_c('span', { staticClass: "icon" }, [_c('Icon', { staticClass: "fa-github" })], 1)])], 1);
   },
   staticRenderFns: [],
   methods: {
@@ -530,10 +620,36 @@ var Badge$1 = {
 
 var Icon$1 = {
   render: function () {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('Icon', { attrs: { "type": "github" } }, [_vm._v("555")]);
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('btn', { staticClass: "is-primary", nativeOn: { "click": function ($event) {
+          _vm.click($event);
+        } } }, [_c('span', { staticClass: "icon" }, [_c('Icon', { staticClass: "fa-github" })], 1), _vm._v(" "), _c('span', [_vm._v("GitHub")])]);
   },
   staticRenderFns: [],
   stub: 1
+};
+
+var SavInput$1 = {
+  render: function () {
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('sav-input', [_c('span', { staticClass: "icon is-small is-left", staticStyle: { "top": "8px" }, slot: "leftIcon" }, [_c('i', { staticClass: "fa fa-user" })]), _vm._v(" "), _c('span', { staticClass: "icon is-small is-right", staticStyle: { "top": "8px" }, slot: "rightIcon" }, [_c('i', { staticClass: "fa fa-check" })])]), _vm._v(" "), _c('div', { staticStyle: { "width": "200px", "margin-bottom": "15px" } }, [_c('sav-input', [_c('span', { staticClass: "icon is-small is-left", staticStyle: { "top": "8px" }, slot: "leftIcon" }, [_c('i', { staticClass: "fa fa-user" })])])], 1), _vm._v(" "), _c('sav-input', { attrs: { "placeholder": "请输入用户名" } }), _vm._v(" "), _c('sav-input', { attrs: { "placeholder": "姓名", "disabled": "true" } })], 1);
+  },
+  staticRenderFns: [],
+  methods: {
+    click() {
+      console.log('click');
+    }
+  }
+};
+
+var SavSelect$1 = {
+  render: function () {
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('sav-select', { attrs: { "value": "3", "name": "grade", "options": [{ value: '3', text: 'one' }, { value: '4', text: 'two' }], "placeholder": { value: '0', text: '请选择' } } }), _vm._v(" "), _c('sav-select', { attrs: { "value": "0", "name": "grade", "options": [{ value: '3', text: 'one' }, { value: '4', text: 'two' }], "placeholder": { value: '0', text: '请选择' } } }), _vm._v(" "), _c('sav-select', { attrs: { "value": "0", "name": "grade", "options": [{ value: '3', text: 'one' }, { value: '4', text: 'two' }], "placeholder": { value: '0', text: '请进行选择' } } })], 1);
+  },
+  staticRenderFns: [],
+  methods: {
+    click() {
+      console.log('click');
+    }
+  }
 };
 
 var routes = [{
@@ -560,6 +676,12 @@ var routes = [{
 }, {
   path: '/Icon',
   component: Icon$1
+}, {
+  path: '/SavInput',
+  component: SavInput$1
+}, {
+  path: '/SavSelect',
+  component: SavSelect$1
 }];
 
 Vue.use(VueRouter);
