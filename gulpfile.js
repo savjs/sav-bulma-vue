@@ -32,7 +32,7 @@ gulp.task('sass', function () {
            // ]
         }))
         .on('error', handleSassError)
-        .pipe(gulp.dest('./dist/static/css'))
+        .pipe(gulp.dest('./demo/dist/static/css'))
 })
 
 

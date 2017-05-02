@@ -15,10 +15,10 @@
     <span></span>
     </span>
     <div class="nav-right nav-menu is-sav-nav-menu">
-      <a class="nav-item is-sav-nav-item is-tab is-hidden-mobile is-sav-item-active">
+      <a href="#/" class="nav-item is-sav-nav-item is-tab is-hidden-mobile is-sav-item-active">
               文档
       </a>
-      <a class="nav-item is-sav-nav-item is-tab is-hidden-mobile">
+      <a href="./demo" class="nav-item is-sav-nav-item is-tab is-hidden-mobile">
               demo
       </a>
       <a class="nav-item" href="https://github.com/savjs/sav-bulma-vue">
