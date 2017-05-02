@@ -1,11 +1,9 @@
 <template>  
-  <div class="field">
     <p :class="{'control':true,'has-icons-left':hasIconsLeft,'has-icons-right':hasIconsRight}">
       <input class="input" :type="type" :name="name" :placeholder="placeholder" :disabled="disabled || null" :maxlength="maxlength" :minlength="minlength" :readonly="readonly" v-model="value" @blur="blur" @focus="focus"/>
       <slot name="leftIcon"></slot>
       <slot name="rightIcon"></slot>
-    </p>
-  </div>
+    </p> 
 </template>
 <script>
   import lang from './lang'
