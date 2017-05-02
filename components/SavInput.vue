@@ -1,7 +1,7 @@
 <template>  
   <div class="field">
     <p :class="{'control':true,'has-icons-left':hasIconsLeft,'has-icons-right':hasIconsRight}">
-      <input class="input" :type="type" :name="name" :placeholder="placeholder" :disabled="disabled || null" :maxlength="maxlength" :minlength="minlength" :readonly="readonly" :value="value" @click="handlClick"/>
+      <input class="input" :type="type" :name="name" :placeholder="placeholder" :disabled="disabled || null" :maxlength="maxlength" :minlength="minlength" :readonly="readonly" v-model="value" @blur="blur" @focus="focus"/>
       <slot name="leftIcon"></slot>
       <slot name="rightIcon"></slot>
     </p>
@@ -58,11 +58,14 @@
       this.hasIconsRight=this.$el.querySelector(".is-right")===null?false:true
     },
     methods: {
-      handleClick ($event) {
+      blur ($event) {
         if (this.disabled || $event.target.disabled) {
           $event.preventDefault()
         }
-        this.$emit('value', this.value)
+        this.$emit('get-value', this.value)
+      },
+      focus ($event) {
+        this.$emit('get-value', this.value)
       }
     }
   }
