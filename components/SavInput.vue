@@ -52,8 +52,8 @@
     computed: {
     },
     mounted () {
-      this.hasIconsLeft = this.$el.querySelector('.is-left') === null ? false : true
-      this.hasIconsRight = this.$el.querySelector('.is-right') === null ? false : true
+      this.hasIconsLeft = this.$el.querySelector('.is-left') === null
+      this.hasIconsRight = this.$el.querySelector('.is-right') === null
     },
     methods: {
       blur ($event) {
@@ -68,4 +68,5 @@
       }
     }
   }
+
 </script>

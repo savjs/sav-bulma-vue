@@ -43,7 +43,7 @@
       this.options.unshift(this.placeholder)
     },
 
-    methods : {
+    methods: {
       change () {
         this.$emit('change', this.value)
       }
