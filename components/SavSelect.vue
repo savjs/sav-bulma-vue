@@ -11,28 +11,28 @@
 </template>
 <script>
   export default {
-    props : {
-      name : {
-        type : String,
-        default : ""
+    props: {
+      name: {
+        type: String,
+        default: ''
       },
-      value : {
-        type : String,
-        default : ""
+      value: {
+        type: String,
+        default: ''
       },
-      options : {
-        type : Array,
-        default : []
+      options: {
+        type: Array,
+        default: []
       },
-      disabled : {
-        type : Boolean,
-        default : false
+      disabled: {
+        type: Boolean,
+        default: false
       },
-      placeholder : {
+      placeholder: {
         type: Object,
-        default: {value:"0",text:'请选择'}
+        default: {value: '0', text: '请选择'}
       },
-      readonly : {
+      readonly: {
         type: Boolean,
         default: false
       }
@@ -44,7 +44,7 @@
     created () {
       this.options.unshift(this.placeholder)
     },
-    methods : {
+    methods: {
       handleChange () {
         this.$emit('value', this.value)
       }

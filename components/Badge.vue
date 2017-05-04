@@ -20,45 +20,45 @@
     props: {
       count: [Number, String], // 显示的数字，大于overflowCount时，显示${overflowCount}+，为 0 时隐藏
       dot: {
-          type: Boolean,  // 不展示数字，只有一个小红点，如需隐藏 dot ，需要设置count为 0
-          default: false
+        type: Boolean, // 不展示数字，只有一个小红点，如需隐藏 dot ，需要设置count为 0
+        default: false
       },
       overflowCount: {  // 展示封顶的数字值
-          type: [Number, String],
-          default: 99
+        type: [Number, String],
+        default: 99
       }
     },
-    computed: {           
+    computed: {
       finalCount () {
-        return parseInt(this.count) >= parseInt(this.overflowCount) ? `${this.overflowCount}+` : this.count;
+        return parseInt(this.count) >= parseInt(this.overflowCount) ? `${this.overflowCount}+` : this.count
       },
       badge () {
-        let status = false;
+        let status = false
         if (this.count) {
-          status = !(parseInt(this.count) === 0);
+          status = !(parseInt(this.count) === 0)
         }
         if (this.dot) {
-          status = true;
+          status = true
           if (this.count) {
-              if (parseInt(this.count) === 0) {
-                  status = false;
-              }
+            if (parseInt(this.count) === 0) {
+              status = false
+            }
           }
         }
-        return status;
+        return status
       }
     },
     data () {
       return {
-          theme,
-          alone: false
-      };
+        theme,
+        alone: false
+      }
     },
     mounted () {
-      const child_length = this.$refs.badge.children.length;
-      if (child_length === 1) {
-          this.alone = true;
+      const childLength = this.$refs.badge.children.length
+      if (childLength === 1) {
+        this.alone = true
       }
     }
-  };
+  }
 </script>

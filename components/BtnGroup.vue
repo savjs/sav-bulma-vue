@@ -7,12 +7,10 @@
 <script>
   import theme from './theme'
   export default {
-
     data () {
       return {theme}
     },
     methods: {
-     
     }
   }
 </script>

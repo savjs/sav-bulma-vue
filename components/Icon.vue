@@ -4,16 +4,16 @@
 <script>
   import theme from './theme'
   export default {
-    props:{
-        icon: {
-            type: String,
-            default: ''
-        }
+    props: {
+      icon: {
+        type: String,
+        default: ''
+      }
     },
     data () {
-       return {theme}
+      return {theme}
     },
-    methods: {     
+    methods: {
     }
   }
 </script>
