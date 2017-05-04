@@ -60,10 +60,11 @@
         if (this.disabled || $event.target.disabled) {
           $event.preventDefault()
         }
-        this.$emit('get-value', this.value)
+        console.log(this.value)
+        this.$emit('blur', this.value)
       },
       focus ($event) {
-        this.$emit('get-value', this.value)
+        this.$emit('focus', this.value)
       }
     }
   }

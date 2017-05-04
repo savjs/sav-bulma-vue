@@ -1,13 +1,11 @@
 <template>  
-  <div class="field">
-    <p class="control">
-      <span class="select">
-        <select :name="name" :v-model="value" :disabled="disabled" :readonly="readonly" @change="handleChange">
-          <option v-for="(option, index) in options" :value="option.value" :selected="option.value==value" >{{option.text}}</option>
-        </select>
-      </span>
-    </p>
-  </div>
+  <p class="control">
+    <span class="select">
+      <select :name="name" :v-model="value" :disabled="disabled" :readonly="readonly" @change="change">
+        <option v-for="(option, index) in options" :value="option.value" :selected="option.value==value" >{{option.text}}</option>
+      </select>
+    </span>
+  </p>
 </template>
 <script>
   export default {
@@ -44,9 +42,10 @@
     created () {
       this.options.unshift(this.placeholder)
     },
-    methods: {
-      handleChange () {
-        this.$emit('value', this.value)
+
+    methods : {
+      change () {
+        this.$emit('change', this.value)
       }
     }
   }
