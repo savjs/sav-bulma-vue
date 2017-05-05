@@ -7,7 +7,10 @@ let theme = {
   modal: 'modal',
   BtnGroup: 'btn-group',
   badge: 'badge',
-  icon: 'fa '
+  icon: 'fa ',
+  gridrow: 'columns',
+  gridcol: 'column',
+  layout: 'layout'
 }
 
 export default theme
