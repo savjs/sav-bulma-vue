@@ -16,6 +16,7 @@
               <li><router-link to="/Badge" >Badge</router-link></li>
               <li><router-link to="/SavInput" >Input</router-link></li>
               <li><router-link to="/SavSelect" >Select</router-link></li>
+              <li><router-link to="/SavNotify" >SavNotify</router-link></li>
             </ul>
           </aside>
         </div>

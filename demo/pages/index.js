@@ -8,6 +8,7 @@ import Badge from './Badge.vue'
 import Icon from './Icon.vue'
 import SavInput from './SavInput.vue'
 import SavSelect from './SavSelect.vue'
+import SavNotify from './SavNotify.vue'
 export default [
   {
     path: '/btn',
@@ -48,5 +49,9 @@ export default [
   {
     path: '/SavSelect',
     component: SavSelect
+  },
+  {
+    path: '/SavNotify',
+    component: SavNotify
   }
 ]

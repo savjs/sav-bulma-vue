@@ -8,7 +8,7 @@ import Badge from '../components/Badge.vue'
 import Icon from '../components/Icon.vue'
 import SavInput from '../components/SavInput.vue'
 import SavSelect from '../components/SavSelect.vue'
-
+import SavNotify from '../components/SavNotify.vue'
 export function install (Vue) {
   Object.keys(components).forEach((it) => {
     Vue.component(it, components[it])
@@ -25,7 +25,8 @@ let components = {
   BtnGroup,
   Badge,
   SavInput,
-  SavSelect
+  SavSelect,
+  SavNotify
 }
 
 Object.defineProperty(components, 'install', {
