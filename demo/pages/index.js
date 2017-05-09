@@ -9,6 +9,11 @@ import Icon from './Icon.vue'
 import SavInput from './SavInput.vue'
 import SavSelect from './SavSelect.vue'
 import SavNotify from './SavNotify.vue'
+
+import layout from './layout.vue'
+import grid from './grid.vue'
+import savtable from './savtable.vue'
+
 export default [
   {
     path: '/btn',
@@ -53,5 +58,17 @@ export default [
   {
     path: '/SavNotify',
     component: SavNotify
+  },
+  {
+    path: '/layout',
+    component: layout
+  },
+  {
+    path: '/grid',
+    component: grid
+  },
+  {
+    path: '/savtable',
+    component: savtable
   }
 ]

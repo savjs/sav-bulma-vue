@@ -9,6 +9,11 @@ import Icon from '../components/Icon.vue'
 import SavInput from '../components/SavInput.vue'
 import SavSelect from '../components/SavSelect.vue'
 import SavNotify from '../components/SavNotify.vue'
+
+import Layout from '../components/Layout.vue'
+import GridRow from '../components/GridRow.vue'
+import GridCol from '../components/GridCol.vue'
+import SavTable from '../components/SavTable.vue'
 export function install (Vue) {
   Object.keys(components).forEach((it) => {
     Vue.component(it, components[it])
@@ -26,7 +31,11 @@ let components = {
   Badge,
   SavInput,
   SavSelect,
-  SavNotify
+  SavNotify,
+  Layout,
+  GridRow,
+  GridCol,
+  SavTable
 }
 
 Object.defineProperty(components, 'install', {

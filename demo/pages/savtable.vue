@@ -1,35 +1,4 @@
-var savTable = {
-  props: [   
-    {
-      name:'columns',
-      type: 'Array',
-      default: [],
-      description: `表头数组`
-    },
-    {
-      name:'datas',
-      type: 'Array',
-      default: [],
-      description: `表格要显示的数据`
-    },
-    {
-      name:'isHideHeader',
-      type: 'Boolean',
-      default: false,
-      description: `是否显示表头`
-    }
-  ],
-  slots: [
-    {
-      name: 'default',
-      comment: '可以自定义表格体内容'
-    }
-  ],
-  examples: [
-    {
-      name: 'savTable',
-      text: `
-        <template>
+ <template>
           <div>
             <savtable :columns="columns" :datas="datas">
               <tr v-for="data in datas" >
@@ -56,9 +25,3 @@ var savTable = {
             }
           }
         </script>
-      `
-    }
-  ]
-}
-
-export {savTable}
