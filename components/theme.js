@@ -10,7 +10,8 @@ let theme = {
   icon: 'fa ',
   gridrow: 'columns',
   gridcol: 'column',
-  layout: 'layout'
+  layout: 'layout',
+  table: 'table'
 }
 
 export default theme
