@@ -32,7 +32,7 @@ var menu = {
         },
         {
             name: 'on-open-change',
-            description: `当 展开/收起 子菜单时触发`
+            description: `当 展开/收起子菜单时触发`
         }
     ],
     examples: []

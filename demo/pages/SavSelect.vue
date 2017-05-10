@@ -21,6 +21,7 @@
   export default {
     methods:{
       change (value) {
+        console.log("111")
         console.log(value)
       }
     }

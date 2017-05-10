@@ -44,7 +44,11 @@
     },
 
     methods: {
-      change () {
+      change ($event) {
+        console.log($event)
+        // let index = this.$el.querySelectorAll('select[name=' + this.name + ']').selectedIndex
+        // console.log(index)
+        console.log('----')
         this.$emit('change', this.value)
       }
     }
