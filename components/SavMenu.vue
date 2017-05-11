@@ -53,7 +53,6 @@
         type: Boolean,
         default: false
       },
-      
       readonly: {
         type: Boolean,
         default: false
@@ -64,10 +63,6 @@
       }
     },
     created () {
-    },
-
-    methods: {
-      
     }
   }
 </script>
