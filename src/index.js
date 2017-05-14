@@ -16,9 +16,10 @@ import Layout from '../components/Layout.vue'
 import GridRow from '../components/GridRow.vue'
 import GridCol from '../components/GridCol.vue'
 import SavTable from '../components/SavTable.vue'
-export function install (Vue) {
+const install = function (Vue, options = {}) {
   Object.keys(components).forEach((it) => {
     Vue.component(it, components[it])
+    Vue.prototype.$notify = Notify
   })
 }
 
@@ -48,4 +49,4 @@ Object.defineProperty(components, 'install', {
   configurable: true
 })
 
-export default components
+module.exports = Object.assign(components, {install})

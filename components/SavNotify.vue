@@ -1,14 +1,13 @@
-<template>
-  <transition :name="transitionName">
-    <div class="notification alert" :class="[typeClass, hasIcon]" v-show="isShow">
-      <span v-if="closable" class="close" @click="handleClose">×</span>
-      <div class="wrap-icon" v-if="iconClass"><i :class="['fa', `fa-${iconClass}`, faSpin]"></i></div>
-      <div class="title is-5" v-if="title">{{ title }}</div>
-      <div class="notification-content" v-html="content"></div>
-    </div>
-  </transition>
+<template> 
+  <div class="notification alert" :class="[typeClass, hasIcon]" v-show="isShow">
+    <span v-if="closable" class="close" @click="handleClose">×</span>
+    <div class="wrap-icon" v-if="iconClass"><i :class="['fa', `fa-${iconClass}`, faSpin]"></i></div>
+    <div class="title is-5" v-if="title">{{ title }}</div>
+    <div class="notification-content" v-html="content"></div>
+  </div>
 </template>
 <script>
+import Notify from './notify'
 export default {
   props: {
     type: {
@@ -131,4 +130,5 @@ export default {
     this.timer = setTimeout(() => this.close(), this.duration)
   }
 }
+
 </script>
