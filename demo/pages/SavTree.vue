@@ -2,7 +2,7 @@
   <div class="tree-menu">
     <ul v-for="menuItem in theModel">
       <sav-tree :model="menuItem"></sav-tree>
-    </ul>
+    </ul> 
  </div>
 </template>
 <script>
