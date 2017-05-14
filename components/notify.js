@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import Notify from './SavNotify'
+import SavNotify from './SavNotify'
 
 function open (propsData) {
-  const NotifyComponent = Vue.extend(Notify)
+  const NotifyComponent = Vue.extend(SavNotify)
   return new NotifyComponent({
     el: document.createElement('div'),
     propsData

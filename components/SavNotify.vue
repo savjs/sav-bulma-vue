@@ -7,7 +7,6 @@
   </div>
 </template>
 <script>
-import Notify from './notify'
 export default {
   props: {
     type: {
