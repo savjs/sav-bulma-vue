@@ -8,6 +8,8 @@ import Badge from '../components/Badge.vue'
 import Icon from '../components/Icon.vue'
 import SavInput from '../components/SavInput.vue'
 import SavSelect from '../components/SavSelect.vue'
+import SavMenu from '../components/SavMenu.vue'
+import SavTree from '../components/SavTree.vue'
 import SavNotify from '../components/SavNotify.vue'
 
 import Layout from '../components/Layout.vue'
@@ -31,6 +33,8 @@ let components = {
   Badge,
   SavInput,
   SavSelect,
+  SavMenu,
+  SavTree,
   SavNotify,
   Layout,
   GridRow,

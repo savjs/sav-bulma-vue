@@ -8,6 +8,8 @@ import Badge from './Badge.vue'
 import Icon from './Icon.vue'
 import SavInput from './SavInput.vue'
 import SavSelect from './SavSelect.vue'
+import SavMenu from './SavMenu.vue'
+import SavTree from './SavTree.vue'
 import SavNotify from './SavNotify.vue'
 
 import layout from './layout.vue'
@@ -54,6 +56,14 @@ export default [
   {
     path: '/SavSelect',
     component: SavSelect
+  },
+  {
+    path: '/SavMenu',
+    component: SavMenu
+  },
+  {
+    path: '/SavTree',
+    component: SavTree
   },
   {
     path: '/SavNotify',

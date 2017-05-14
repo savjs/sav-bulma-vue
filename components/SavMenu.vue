@@ -1,68 +1,52 @@
 <template>  
-    <aside class="menu">
-      <p class="menu-label">
-        General
-      </p>
-      <ul class="menu-list">
-        <li><a>Dashboard</a></li>
-        <li><a>Customers</a></li>
-      </ul>
-      <p class="menu-label">
-        Administration
-      </p>
-      <ul class="menu-list">
-        <li><a>Team Settings</a></li>
-        <li>
-          <a class="is-active">Manage Your Team</a>
-          <ul>
-            <li><a>Members</a></li>
-            <li><a>Plugins</a></li>
-            <li><a>Add a member</a></li>
-          </ul>
-        </li>
-        <li><a>Invitations</a></li>
-        <li><a>Cloud Storage Environment Settings</a></li>
-        <li><a>Authentication</a></li>
-      </ul>
-      <p class="menu-label">
-        Transactions
-      </p>
-      <ul class="menu-list">
-        <li><a>Payments</a></li>
-        <li><a>Transfers</a></li>
-        <li><a>Balance</a></li>
-      </ul>
-  </aside>
+  <nav class="nav has-shadow">
+    <div class="container">
+      <div class="nav-left">
+        <a v-if="logoInfo.imgSrc" class="nav-item" :href="logoInfo.href">
+          <img :src="logoInfo.imgSrc" :alt="logoInfo.imgAlt">
+        </a>
+        <a v-for="(item, index) in menus" :class="{'nav-item':true,'is-tab':true,'is-hidden-mobile':true,'is-active':index==active}" @click="click(index)" :href="item.href">{{item.text}}</a>
+      </div>
+      <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <div class="nav-right nav-menu">
+        <a v-for="(item, index) in menus" :class="{'nav-item':true,'is-tab':true,'is-hidden-tablet':true,'is-active':item.active}" @click="click(index)" :href="item.href">{{item.text}}</a>
+      </div>
+    </div>
+  </nav>
 </template>
 <script>
   export default {
     props: {
-      name: {
-        type: String,
-        default: ''
+      logoInfo: {
+        type: Object,
+        default: {href: '/', imgSrc: '', imgAlt: ''}
       },
-      value: {
-        type: String,
-        default: ''
-      },
-      options: {
+      menus: {
         type: Array,
         default: []
-      },
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-      readonly: {
-        type: Boolean,
-        default: false
       }
     },
     data () {
       return {
+        active: 1
       }
     },
     created () {
+      for (let i in this.menus) {
+        if (this.menus[i].active) {
+          this.active = i
+        }
+      }
+    },
+    methods: {
+      click (index) {
+        this.active = index
+        this.$emit('click', index)
+      }
     }
   }
 </script>
