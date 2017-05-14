@@ -1,73 +1,39 @@
-<template>  
-  <aside class="menu">
-    <p class="menu-label">
-      中国
-    </p>
-    <ul class="menu-list">
-      <li><a>北京</a></li>
-      <li>
-        <a class="is-active">上海</a>
-        <ul>
-          <li><a>浦东</a></li>
-          <li><a>黄埔</a></li>
-          <li>
-            <a>静安</a>
-            <ul>
-              <li><a>地址一</a></li>
-              <li><a>地址二</a></li>
-              <li><a>地址三</a></li>
-            </ul>
-          </li>
+<template>
+    <li>
+        <span @click="toggle">
+            <i v-if="isFolder" class="icon" :class="[open ? 'folder-open': 'folder']"></i>
+            <i v-if="!isFolder" class="icon file-text"></i>
+            {{ model.menuName }}
+        </span>
+        <ul v-show="open" v-if="isFolder">
+            <sav-tree v-for="item in model.children" :model="item"></sav-tree>
         </ul>
-      </li>
-      <li><a>广州</a></li>
-      <li><a>浙江</a></li>
-      <li><a>河南</a></li>
-    </ul>
-    <p class="menu-label">
-      美国
-    </p>
-    <ul class="menu-list">
-      <li><a>旧金山</a></li>
-      <li><a>纽约</a></li>
-    </ul>
-    <p class="menu-label">
-      英国
-    </p>
-    <ul class="menu-list">
-      <li><a>伦敦</a></li>
-    </ul>
-  </aside>
+    </li>
 </template>
-<script>
-  export default {
-    props: {
-      logoInfo: {
-        type: Object,
-        default: {href: '/', imgSrc: '', imgAlt: ''}
+ <script>
+    export default {
+      name: 'SavTree',
+      props: ['model'],
+      data () {
+        return {
+          open: false,
+          isFolder: true
+        }
       },
-      menus: {
-        type: Array,
-        default: []
-      }
-    },
-    data () {
-      return {
-        active: 1
-      }
-    },
-    created () {
-      for (let i in this.menus) {
-        if (this.menus[i].active) {
-          this.active = i
+      computed: {
+        isFolder () {
+          return this.model.children && this.model.children.length
+        }
+      },
+      created () {
+        console.log(this.model)
+      },
+      methods: {
+        toggle () {
+          if (this.isFolder) {
+            this.open = !this.open
+          }
         }
       }
-    },
-    methods: {
-      click (index) {
-        this.active = index
-        this.$emit('click', index)
-      }
     }
-  }
 </script>

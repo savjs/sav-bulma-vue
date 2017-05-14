@@ -1,54 +1,84 @@
 <template>
-  <div>
-    <sav-tree @click="click"></sav-tree>
-  </div>
+  <div class="tree-menu">
+    <ul v-for="menuItem in theModel">
+      <sav-tree :model="menuItem"></sav-tree>
+    </ul>
+ </div>
 </template>
 <script>
   export default {
     data () {
       return {
-        data: [
+        theModel: [
+  {
+    "id": "1",
+    "menuName": "基础管理",
+    "menuCode": "10",
+    "children": [
+      {
+        "menuName": "用户管理",
+        "menuCode": "11"
+      },
+      {
+        "menuName": "角色管理",
+        "menuCode": "12",
+        "children": [
           {
-            value: '0',
-            text: '中国',
-            children: [
-              {
-                value: '1',
-                text: '上海',
-                children: [
-                  {
-                    value: '11',
-                    text: '黄埔'
-                  },
-                  {
-                    value: '12',
-                    text: '静安'
-                  },
-                  {
-                    value: '13',
-                    text: '浦东'
-                  },
-                ]
-              },
-              {
-                value: '2',
-                text: '北京'
-              },
-              {
-                value: '3',
-                text: '广州'
-              },
-            ]
-        },
-        {
-          value: '100', 
-          text:'美国'
-        },
-        {
-          value: '200', 
-          text:'英国'
-        }
-      ]
+            "menuName": "管理员",
+            "menuCode": "121"
+          },
+          {
+            "menuName": "CEO",
+            "menuCode": "122"
+          },
+          {
+            "menuName": "CFO",
+            "menuCode": "123"
+          },
+          {
+            "menuName": "COO",
+            "menuCode": "124"
+          },
+          {
+            "menuName": "普通人",
+            "menuCode": "124"
+          }
+        ]
+      },
+      {
+        "menuName": "权限管理",
+        "menuCode": "13"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "menuName": "商品管理",
+    "menuCode": ""
+  },
+  {
+    "id": "3",
+    "menuName": "订单管理",
+    "menuCode": "30",
+    "children": [
+      {
+        "menuName": "订单列表",
+        "menuCode": "31"
+      },
+      {
+        "menuName": "退货列表",
+        "menuCode": "32",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "menuName": "商家管理",
+    "menuCode": "",
+    "children": []
+  }
+]
       }
     },
     methods:{
@@ -58,3 +88,6 @@
     }
   }
 </script>
+<style>
+
+</style>
