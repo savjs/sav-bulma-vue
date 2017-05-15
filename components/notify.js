@@ -1,5 +1,6 @@
-import Vue from 'vue'
-import SavNotify from './SavNotify'
+import SavNotify from './SavNotify.vue'
+
+let Vue
 
 function open (propsData) {
   const NotifyComponent = Vue.extend(SavNotify)
@@ -9,7 +10,12 @@ function open (propsData) {
   })
 }
 
-export default {
+export function installNotify (vue) {
+  Vue = vue
+  Vue.prototype.$notify = handler
+}
+
+let handler = {
   open (params) {
     const defaultParam = { direction: 'right', duration: 4500 }
     const propsData = Object.assign(defaultParam, params)

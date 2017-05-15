@@ -1,22 +1,82 @@
-.notification
-  +block
-  +clearfix
-  background-color: $background
-  border-radius: $radius
-  padding: 16px 20px
+.notifications 
+  position: fixed
+  top: 20px
+  right: 0
+  z-index: 1024 
+  pointer-events: none
+
+  &.top-center
+    right: 0
+    left: 0
+    margin: 0 auto
+
+  &.top-left
+    right: auto
+    left: 0
+
+  &.bottom-left
+    top: auto
+    bottom: 20px
+    right: auto
+    left: 0
+
+  &.bottom-center
+    top: auto
+    bottom: 20px
+    right: 0
+    left: 0
+    margin: 0 auto
+
+  &.bottom-right
+    top: auto
+    bottom: 20px
+
+
+  @include tablet() 
+    max-width: 320px
+
+
+  .notification 
+    margin: 10px
+    &.has-icon
+      padding-left: 45px
+  
+    &.is-default
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2)
+      background-color: #fff
+  
+    .close
+      float: right
+      margin: -13px -14px 0 20px
+  
+.alert 
   position: relative
-  .delete
-    border-radius: 0 $radius
-    float: right
-    margin: -16px -20px 0 20px
-  .title,
-  .subtitle,
-  .content
-    color: inherit
-  // Colors
-  @each $name, $pair in $colors
-    $color: nth($pair, 1)
-    $color-invert: nth($pair, 2)
-    &.is-#{$name}
-      background-color: $color
-      color: $color-invert
+  min-width: 240px
+  backface-visibility: hidden
+  transform: translate3d(0, 0, 0)
+  pointer-events: all
+  &.has-icon
+    padding-left: 45px
+ 
+  .title
+    margin-bottom: 5px
+    font-weight: 500
+    font-size: 16px
+ 
+  .notification-content
+    margin-top: 0px
+ 
+
+.wrap-icon
+  position: absolute
+  left: 10px
+  top: 50%
+  margin-top: -11px
+  width: 25px
+  height: 25px
+  i
+    font-size: 21px
+ 
+
+
+

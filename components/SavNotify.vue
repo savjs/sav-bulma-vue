@@ -1,10 +1,12 @@
-<template> 
-  <div class="notification alert" :class="[typeClass, hasIcon]" v-show="isShow">
-    <span v-if="closable" class="close" @click="handleClose">×</span>
-    <div class="wrap-icon" v-if="iconClass"><i :class="['fa', `fa-${iconClass}`, faSpin]"></i></div>
-    <div class="title is-5" v-if="title">{{ title }}</div>
-    <div class="notification-content" v-html="content"></div>
-  </div>
+<template>
+  <transition :name="transitionName">
+    <div class="notification alert" :class="[typeClass, hasIcon]" v-show="isShow">
+      <span v-if="closable" class="close" @click="handleClose">×</span>
+      <div class="wrap-icon" v-if="iconClass"><i :class="['fa', `fa-${iconClass}`, faSpin]"></i></div>
+      <div class="title is-5" v-if="title">{{ title }}</div>
+      <div class="notification-content" v-html="content"></div>
+    </div>
+  </transition>
 </template>
 <script>
 export default {
@@ -30,7 +32,7 @@ export default {
     },
     duration: {
       type: Number,
-      default: 4500
+      default: 45000000
     },
     placement: {
       type: String,

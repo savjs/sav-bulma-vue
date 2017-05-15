@@ -10,18 +10,12 @@ import SavInput from '../components/SavInput.vue'
 import SavSelect from '../components/SavSelect.vue'
 import SavMenu from '../components/SavMenu.vue'
 import SavTree from '../components/SavTree.vue'
-import SavNotify from '../components/SavNotify.vue'
+import {installNotify} from '../components/notify'
 
 import Layout from '../components/Layout.vue'
 import GridRow from '../components/GridRow.vue'
 import GridCol from '../components/GridCol.vue'
 import SavTable from '../components/SavTable.vue'
-export function install (Vue) {
-  Object.keys(components).forEach((it) => {
-    Vue.component(it, components[it])
-    Vue.prototype.$notify = SavNotify
-  })
-}
 
 let components = {
   Btn,
@@ -36,11 +30,17 @@ let components = {
   SavSelect,
   SavMenu,
   SavTree,
-  SavNotify,
   Layout,
   GridRow,
   GridCol,
   SavTable
+}
+
+export function install (Vue) {
+  Object.keys(components).forEach((it) => {
+    Vue.component(it, components[it])
+  })
+  installNotify(Vue)
 }
 
 Object.defineProperty(components, 'install', {
@@ -48,5 +48,3 @@ Object.defineProperty(components, 'install', {
   enumerable: false,
   configurable: true
 })
-
-export default components

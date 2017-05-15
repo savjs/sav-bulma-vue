@@ -1,8 +1,6 @@
 <template>
   <div>
-    <btn @click.native="click">常规按钮</btn>
-    <btn class="is-primary" @click="basicNotify"> Primary</btn>
-    
+    <btn class="is-primary" @click.native="basicNotify"> Primary</btn>
   </div>
 </template>
 <script>
