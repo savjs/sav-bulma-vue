@@ -482,6 +482,272 @@ var select = {
     examples: []
 };
 
+var gridrow = {
+  props: [{
+    name: 'type',
+    type: 'String',
+    default: '',
+    description: `自定义类名`
+  }],
+  slots: [{
+    name: 'default',
+    description: '默认的插槽,支持html'
+  }],
+  events: [],
+  examples: [{
+    name: 'gridrow',
+    text: `
+        <gridrow>
+          <gridcol>
+            <code>123</code>
+          </gridcol>
+        </gridrow>
+      `
+  }]
+};
+
+var gridcol = {
+  props: [{
+    name: 'col',
+    type: 'Number',
+    default: 12,
+    description: `宽度，默认12`
+  }, {
+    name: 'offset',
+    type: 'Number',
+    default: 0,
+    description: `偏移，默认不偏移`
+  }, {
+    name: 'type',
+    type: 'String',
+    default: '',
+    description: `自定义类名`
+  }],
+  slots: [{
+    name: 'default',
+    description: '默认的插槽,支持html'
+  }],
+  events: [],
+  examples: [{
+    name: 'gridcol',
+    text: `
+        <gridcol>
+          <code>123</code>
+        </gridcol>
+      `
+  }]
+};
+
+var layout = {
+  props: [{
+    name: 'description',
+    type: 'String',
+    default: '',
+    description: `布局组件`
+  }],
+  slots: [{
+    name: 'default',
+    description: '默认的插槽,布局主体部分，支持html'
+  }, {
+    name: 'header',
+    description: '布局头部，支持html'
+  }, {
+    name: 'footer',
+    description: '布局底部，支持html'
+  }],
+  events: [],
+  examples: [{
+    name: 'layout',
+    text: `
+        <layout>
+          <div class="body">
+            <div class="container">
+              <h1 class="title">
+                Hero title
+              </h1>
+              <h2 class="subtitle">
+                Hero subtitle
+              </h2>
+            </div>
+          </div>
+        </layout>
+      `
+  }]
+};
+
+var savTable = {
+  props: [{
+    name: 'columns',
+    type: 'Array',
+    default: [],
+    description: `表头数组`
+  }, {
+    name: 'datas',
+    type: 'Array',
+    default: [],
+    description: `表格要显示的数据`
+  }, {
+    name: 'isHideHeader',
+    type: 'Boolean',
+    default: false,
+    description: `是否显示表头`
+  }],
+  slots: [{
+    name: 'default',
+    comment: '可以自定义表格体内容'
+  }],
+  examples: [{
+    name: 'savTable',
+    text: `
+        <template>
+          <div>
+            <savtable :columns="columns" :datas="datas">
+              <tr v-for="data in datas" >
+                <td v-for="col in columns">{{data[col.key]}}</td>
+              </tr>
+            </savtable>
+          </div>
+        </template>
+
+        <script type="text/javascript">
+          export default {
+            data: function () {
+              return {
+                columns: [
+                  { title:'Name', key: 'name' },
+                  { title:'Age', key: 'age' },
+                ],
+                datas: [
+                  { name: '张三', age: 10 },
+                  { name: '李四', age: 10 },
+                  { name: '王五', age: 10 }
+                ]
+              };
+            }
+          }
+        </script>
+      `
+  }]
+};
+
+var Notify = {
+  props: [{
+    name: 'type',
+    type: 'String',
+    default: false,
+    description: `主题颜色，可选值为default primary info success danger warning`
+  }, {
+    name: 'title',
+    type: 'String',
+    default: false,
+    description: `标题`
+  }, {
+    name: 'content',
+    type: 'String',
+    default: false,
+    description: `内容`
+  }, {
+    name: 'duration',
+    type: 'Number',
+    default: 1,
+    description: `倒计时关闭的秒数 单位秒`
+  }, {
+    name: 'icon',
+    type: 'Number',
+    default: false,
+    description: `图标`
+  }, {
+    name: 'placement',
+    type: 'String',
+    default: 'top-right',
+    description: `notify的位置,可选值top-right top-center top-left bottom-right bottom-center bottom-left`
+  }, {
+    name: 'closable',
+    type: 'Boolean',
+    default: true,
+    description: `是否可关闭`
+  }],
+  slots: [{
+    name: 'default',
+    comment: '内容'
+  }],
+  examples: [{
+    name: 'primaryNotify',
+    text: `
+        <btn :class="'btn is-large'"  :disabled="disabled || null" @click="primaryNotify">点击我</btn>
+      `
+  }]
+};
+
+var menu = {
+    props: [{
+        name: 'mode',
+        type: 'String',
+        default: 'vertical',
+        description: `菜单类型，可选值为 horizontal（水平） 和 vertical（垂直）`
+    }, {
+        name: 'active-name',
+        type: 'String | Number',
+        default: '',
+        description: `激活菜单的 name 值`
+    }, {
+        name: 'open-names',
+        type: 'Array',
+        default: [],
+        description: `展开的 Submenu 的 name 集合`
+    }, {
+        name: 'accordion',
+        type: 'Boolean',
+        default: false,
+        description: `是否开启手风琴模式，开启后每次至多展开一个子菜单`
+    }],
+    events: [{
+        name: 'on-select',
+        description: `选择菜单（Menu-item）时触发`
+    }, {
+        name: 'on-open-change',
+        description: `当 展开/收起子菜单时触发`
+    }],
+    examples: []
+};
+
+var tree = {
+    props: [{
+        name: 'data',
+        type: 'Array',
+        default: [],
+        description: `可嵌套的节点属性的数组，生成 tree 的数据`
+    }, {
+        name: 'multiple',
+        type: 'Boolean',
+        default: false,
+        description: `是否支持多选`
+    }, {
+        name: 'show-checkbox',
+        type: 'Boolean',
+        default: [],
+        description: `是否显示多选框`
+    }],
+    events: [{
+        name: 'on-select-change',
+        description: `点击树节点时触发`
+    }, {
+        name: 'on-check-change',
+        description: `点击复选框时触发`
+    }, {
+        name: 'on-toggle-expand',
+        description: `展开和收起子列表时触发`
+    }],
+    methods: [{
+        name: 'getCheckedNodes',
+        description: '获取被勾选的节点'
+    }, {
+        name: 'getSelectedNodes',
+        description: '获取被选中的节点'
+    }],
+    examples: []
+};
+
 
 
 var data = Object.freeze({
@@ -494,7 +760,14 @@ var data = Object.freeze({
 	modal: modal,
 	radio: radio,
 	radiogroup: radiogroup,
-	select: select
+	select: select,
+	gridrow: gridrow,
+	gridcol: gridcol,
+	layout: layout,
+	savTable: savTable,
+	Notify: Notify,
+	menu: menu,
+	tree: tree
 });
 
 var Index = {

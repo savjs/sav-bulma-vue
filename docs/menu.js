@@ -38,4 +38,4 @@ var menu = {
     examples: []
 }
 
-export {select}
+export {menu}

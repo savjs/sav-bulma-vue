@@ -8,7 +8,13 @@ import {modal} from './modal.js'
 import {radio} from './radio.js'
 import {radiogroup} from './radio-group.js'
 import {select} from './select.js'
-
+import {gridrow} from './gridrow.js'
+import {gridcol} from './gridcol.js'
+import {layout} from './layout.js'
+import {savTable} from './savTable.js'
+import {Notify} from './notify.js'
+import {menu} from './menu.js'
+import {tree} from './tree.js'
 
 export {
     Badge as badge,
@@ -20,5 +26,12 @@ export {
     modal,
     radio,
     radiogroup,
-    select
+    select,
+    gridrow,
+    gridcol,
+    layout,
+    savTable,
+    Notify,
+    menu,
+    tree
 }

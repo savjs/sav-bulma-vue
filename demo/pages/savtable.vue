@@ -1,10 +1,10 @@
  <template>
           <div>
-            <savtable :columns="columns" :datas="datas">
+            <SavTable :columns="columns" :datas="datas">
               <tr v-for="data in datas" >
                 <td v-for="col in columns">{{data[col.key]}}</td>
               </tr>
-            </savtable>
+            </SavTable>
           </div>
         </template>
 

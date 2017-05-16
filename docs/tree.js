@@ -46,4 +46,4 @@ var tree = {
     examples: []
 }
 
-export {select}
+export {tree}

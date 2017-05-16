@@ -1,10 +1,10 @@
 <template>
 <div>
-  <gridrow>
-          <gridcol>
+  <GridRow>
+          <GridCol>
             <code>123</code>
-          </gridcol>
-        </gridrow>
+          </GridCol>
+        </GridRow>
         </div>
 </template>
 <script>
