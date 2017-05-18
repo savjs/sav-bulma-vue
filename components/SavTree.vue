@@ -9,6 +9,7 @@
             <sav-tree v-for="item in model.children" :model="item"></sav-tree>
         </ul>
     </li>
+    
 </template>
  <script>
     export default {
