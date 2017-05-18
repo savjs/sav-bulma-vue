@@ -13,7 +13,7 @@
         <span></span>
       </span>
       <div class="nav-right nav-menu">
-        <a v-for="(item, index) in menus" :class="{'nav-item':true,'is-tab':true,'is-hidden-tablet':true,'is-active':item.active}" @click="click(index)" :href="item.href">{{item.text}}</a>
+        <a v-for="(item, index) in menus" :class="{'nav-item':true,'is-tab':true,'is-hidden-tablet':true,'is-active':item.active}" @click="click(index)" :href="item.href" v-html="item.text"></a>
       </div>
     </div>
   </nav>

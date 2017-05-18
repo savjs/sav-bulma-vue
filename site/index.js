@@ -3,6 +3,9 @@ import Vue from 'vue'
 
 Vue.use(VueRouter)
 
+import {install} from '../src/index.js'
+Vue.use(install)
+
 import App from './App.vue'
 
 import routes from './pages/index.js'

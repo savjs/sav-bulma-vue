@@ -16,6 +16,25 @@ import layout from './layout.vue'
 import grid from './grid.vue'
 import savtable from './savtable.vue'
 
+export {
+    Badge as badge,
+    btn,
+    BtnGroup as btngroup,
+    checkbox,
+    Icon as icon,
+    SavInput as input,
+    modal,
+    radio,
+    radiogroup,
+    SavSelect as select,
+    grid as gridrow,
+    grid as gridcol,
+    layout,
+    SavTree as savTable,
+    SavNotify as Notify,
+    SavMenu as menu,
+    SavTree as tree
+}
 export default [
   {
     path: '/btn',

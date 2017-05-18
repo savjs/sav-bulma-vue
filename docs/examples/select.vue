@@ -1,4 +1,4 @@
-pull<template>
+<template>
   <sav-select :type="text" :placeholder="请选择" @on-change="ok" :option="option"> 
   </sav-select>
 </template>

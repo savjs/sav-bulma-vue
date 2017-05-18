@@ -1,7 +1,7 @@
 <template>
   <div :class="[ theme.layout]">
     <section v-if="showHeader" class="hero">
-      <div class="container"><slot name="header"></slot></div>
+      <slot name="header"></slot>
     </section>
     <section class="section">
       <div class="container"><slot></slot></div>
