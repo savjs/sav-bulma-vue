@@ -104,21 +104,21 @@ import * as comps from '../../demo/pages/index2.js'
             { title:'默认值', key: 'default' },
             { title:'说明', key: 'description' },
           ],
-          datas:data[this.$route.params.component] && data[this.$route.params.component].props || []
+          datas:(data[this.$route.params.component] && data[this.$route.params.component].props) || []
         },
         s:{
           columns: [
             { title:'属性', key: 'name' },
             { title:'说明', key: 'description' },
           ],
-          datas:data[this.$route.params.component] && data[this.$route.params.component].slots || []
+          datas:(data[this.$route.params.component] && data[this.$route.params.component].slots) || []
         },
         e:{
           columns: [
             { title:'属性', key: 'name' },
             { title:'说明', key: 'description' },
           ],
-          datas: data[this.$route.params.component] && data[this.$route.params.component].events || []
+          datas: (data[this.$route.params.component] && data[this.$route.params.component].events) || []
         }
       }
     },
