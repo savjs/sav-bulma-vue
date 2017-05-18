@@ -1703,12 +1703,14 @@ var radiogroup$1 = {
 
 var modal$1 = {
   render: function () {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('modal', { attrs: { "show": true } }, [_vm._v("xxxx")]), _vm._v(" "), _c('btn')], 1);
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('modal', { ref: "themodal" }, [_vm._v("xxxx")]), _vm._v(" "), _c('btn', { nativeOn: { "click": function ($event) {
+          _vm.click($event);
+        } } }, [_vm._v("显示弹框")])], 1);
   },
   staticRenderFns: [],
   methods: {
     click() {
-      console.log('click');
+      this.$refs.themodal.open();
     }
   }
 };
