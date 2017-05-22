@@ -64,12 +64,12 @@
       </div>
       
 
-      <SavTable :columns="p.columns" :datas="p.datas" v-show="activeItem === 1" v-if="p && p.datas">
+      <SavTable :columns="p.columns" :datas="compList[$route.params.component].props" v-show="activeItem === 1" v-if="compList[$route.params.component] && compList[$route.params.component].props">
             </SavTable>
 
-      <SavTable :columns="s.columns" :datas="s.datas" v-show="activeItem === 2" v-if="s && s.datas">
+      <SavTable :columns="s.columns" :datas="compList[$route.params.component].slots" v-show="activeItem === 2" v-if="compList[$route.params.component].slots">
             </SavTable>
-      <SavTable :columns="e.columns" :datas="e.datas" v-show="activeItem === 3" v-if="e && e.datas">
+      <SavTable :columns="e.columns" :datas="compList[$route.params.component].events" v-show="activeItem === 3" v-if="compList[$route.params.component].events">
             </SavTable>
       </section>
     </GridCol>
@@ -87,7 +87,6 @@
 </section>
 </template>
 <script>
-
 import * as data from '../../docs/index.js'
 import * as comps from '../../demo/pages/index2.js'
   export default {
@@ -104,21 +103,21 @@ import * as comps from '../../demo/pages/index2.js'
             { title:'默认值', key: 'default' },
             { title:'说明', key: 'description' },
           ],
-          datas:(data[this.$route.params.component] && data[this.$route.params.component].props) || []
+          datas:(data[this.$route.params.component] && data[this.$route.params.component].props) ? data[this.$route.params.component].props : []
         },
         s:{
           columns: [
             { title:'属性', key: 'name' },
             { title:'说明', key: 'description' },
           ],
-          datas:(data[this.$route.params.component] && data[this.$route.params.component].slots) || []
+          datas:(data[this.$route.params.component] && data[this.$route.params.component].slots) ? data[this.$route.params.component].slots : []
         },
         e:{
           columns: [
             { title:'属性', key: 'name' },
             { title:'说明', key: 'description' },
           ],
-          datas: (data[this.$route.params.component] && data[this.$route.params.component].events) || []
+          datas: (data[this.$route.params.component] && data[this.$route.params.component].events) ? data[this.$route.params.component].events : []
         }
       }
     },

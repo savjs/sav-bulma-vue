@@ -16,6 +16,7 @@ import Layout from '../components/Layout.vue'
 import GridRow from '../components/GridRow.vue'
 import GridCol from '../components/GridCol.vue'
 import SavTable from '../components/SavTable.vue'
+import SavTab from '../components/SavTab.vue'
 
 let components = {
   Btn,
@@ -33,7 +34,8 @@ let components = {
   Layout,
   GridRow,
   GridCol,
-  SavTable
+  SavTable,
+  SavTab
 }
 
 export function install (Vue) {

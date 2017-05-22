@@ -15,6 +15,7 @@ import SavNotify from './SavNotify.vue'
 import layout from './layout.vue'
 import grid from './grid.vue'
 import savtable from './savtable.vue'
+import SavTab from './SavTab.vue'
 
 export {
     Badge as badge,
@@ -99,5 +100,9 @@ export default [
   {
     path: '/savtable',
     component: savtable
+  },
+  {
+    path: '/savtab',
+    component: SavTab
   }
 ]

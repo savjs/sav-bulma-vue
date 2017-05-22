@@ -15,7 +15,7 @@ import {savTable} from './savTable.js'
 import {Notify} from './notify.js'
 import {menu} from './menu.js'
 import {tree} from './tree.js'
-
+import {SavTab} from './SavTab.js'
 export {
     Badge as badge,
     btn,
@@ -33,5 +33,6 @@ export {
     savTable,
     Notify,
     menu,
-    tree
+    tree,
+    SavTab
 }

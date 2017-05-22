@@ -16,7 +16,8 @@ let theme = {
   gridrow: 'columns',
   gridcol: 'column',
   layout: 'layout',
-  table: 'table'
+  table: 'table',
+  tab: 'tabs'
 };
 
 var Btn = {
@@ -841,6 +842,40 @@ var SavTable = {
   }
 };
 
+var SavTab = {
+  render: function () {
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "tab-panel" }, [_c('div', { class: [_vm.theme.tab] }, [_c('ul', _vm._l(_vm.tabs, function (it) {
+      return _c('li', { class: [it.value == _vm.value && 'is-active'], on: { "mouseenter": function ($event) {
+            _vm.hover && _vm.$emit('input', it.value);
+          }, "click": function ($event) {
+            _vm.$emit('input', it.value);
+          } } }, [_c('a', [_vm._v(_vm._s(it.title))])]);
+    }))]), _vm._v(" "), _c('div', { class: ['tab-container'] }, _vm._l(_vm.tabs, function (it) {
+      return _c('div', { directives: [{ name: "show", rawName: "v-show", value: it.value == _vm.value, expression: "it.value == value" }] }, [_vm._t(it.value)], 2);
+    }))]);
+  },
+  staticRenderFns: [],
+  props: {
+    tabs: {
+      type: Array,
+      default: []
+    },
+    value: {
+      type: String,
+      default: ''
+    },
+    hover: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {
+      theme
+    };
+  }
+};
+
 let components = {
   Btn,
   Checkbox,
@@ -857,7 +892,8 @@ let components = {
   Layout,
   GridRow,
   GridCol,
-  SavTable
+  SavTable,
+  SavTab
 };
 
 function install(Vue$$1) {
@@ -1615,6 +1651,63 @@ var tree = {
     examples: []
 };
 
+var SavTab$1 = {
+  props: [{
+    name: 'tabs',
+    type: 'Array',
+    default: [],
+    description: `选项数组`
+  }, {
+    name: 'value',
+    type: 'String',
+    default: '',
+    description: `当前选中的值`
+  }, {
+    name: 'hover',
+    type: 'Boolean',
+    default: false,
+    description: `是否支持hover事件选中`
+  }],
+  slots: [{
+    name: 'default',
+    comment: '可以自定义表格体内容'
+  }],
+  examples: [{
+    name: 'SavTab',
+    text: `
+        <template>
+          <div>
+            <SavTab :tabs="tabs" v-model="tab">
+              <ul slot="label1">
+                选项1
+              </ul>
+              <ul class="group-col" slot="label2">
+                <li class="group-item" v-for="i in 5">list-item-{{i}}</li>
+              </ul>
+              <div slot="label3">内容区3</div>
+              <div slot="label4">内容区4</div>
+            </SavTab>
+          </div>
+        </template>
+        <script type="text/javascript">
+          export default {
+            data: function () {
+              return {
+                tabs: [
+                  { title:'标签1', value: "label1"},
+                  { title:'标签2', value: "label2"},
+                  { title:'标签3', value: "label3"},
+                  { title:'标签4', value: "label4"},
+                ],
+                tab: 'label1'
+              };
+            }
+          }
+        </script>
+      `
+  }]
+};
+
 
 
 var data = Object.freeze({
@@ -1634,7 +1727,8 @@ var data = Object.freeze({
 	savTable: savTable,
 	Notify: Notify,
 	menu: menu,
-	tree: tree
+	tree: tree,
+	SavTab: SavTab$1
 });
 
 var btn$1 = {
@@ -1929,6 +2023,23 @@ var savtable = {
   }
 };
 
+var SavTab$2 = {
+  render: function () {
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('SavTab', { attrs: { "tabs": _vm.tabs }, model: { value: _vm.tab, callback: function ($$v) {
+          _vm.tab = $$v;
+        }, expression: "tab" } }, [_c('ul', { slot: "label1" }, [_vm._v("\n      选项1\n    ")]), _vm._v(" "), _c('ul', { staticClass: "group-col", slot: "label2" }, _vm._l(5, function (i) {
+      return _c('li', { staticClass: "group-item" }, [_vm._v("list-item-" + _vm._s(i))]);
+    })), _vm._v(" "), _c('div', { slot: "label3" }, [_vm._v("内容区3")]), _vm._v(" "), _c('div', { slot: "label4" }, [_vm._v("内容区4")])])], 1);
+  },
+  staticRenderFns: [],
+  data: function () {
+    return {
+      tabs: [{ title: '标签1', value: "label1" }, { title: '标签2', value: "label2" }, { title: '标签3', value: "label3" }, { title: '标签4', value: "label4" }],
+      tab: 'label1'
+    };
+  }
+};
+
 
 
 var comps = Object.freeze({
@@ -1948,7 +2059,8 @@ var comps = Object.freeze({
 	savTable: savtable,
 	Notify: SavNotify$1,
 	menu: SavMenu$1,
-	tree: SavTree$1
+	tree: SavTree$1,
+	SavTab: SavTab$2
 });
 
 var Index = {
@@ -1961,7 +2073,7 @@ var Index = {
           _vm.activeItem = 2;
         } } }, [_vm._v("SLOTS")])]), _vm._v(" "), _c('li', { class: { 'is-active is-sav-tabs-is-active': _vm.activeItem === 3 } }, [_c('a', { on: { "click": function ($event) {
           _vm.activeItem = 3;
-        } } }, [_vm._v("EVENTS")])])])]), _vm._v(" "), _vm.p && _vm.p.datas ? _c('SavTable', { directives: [{ name: "show", rawName: "v-show", value: _vm.activeItem === 1, expression: "activeItem === 1" }], attrs: { "columns": _vm.p.columns, "datas": _vm.p.datas } }) : _vm._e(), _vm._v(" "), _vm.s && _vm.s.datas ? _c('SavTable', { directives: [{ name: "show", rawName: "v-show", value: _vm.activeItem === 2, expression: "activeItem === 2" }], attrs: { "columns": _vm.s.columns, "datas": _vm.s.datas } }) : _vm._e(), _vm._v(" "), _vm.e && _vm.e.datas ? _c('SavTable', { directives: [{ name: "show", rawName: "v-show", value: _vm.activeItem === 3, expression: "activeItem === 3" }], attrs: { "columns": _vm.e.columns, "datas": _vm.e.datas } }) : _vm._e()], 1)]) : _vm._e(), _vm._v(" "), !(_vm.$route.params.component in _vm.compList) ? _c('div', [_c('header', { staticClass: "example-header" }, [_c('span', [_vm._v("\r\n                sav-bulma-vue组件\r\n          "), _c('a', { attrs: { "href": "#按钮类型" } }, [_vm._v("#")])])]), _vm._v(" "), _c('div', { staticClass: "example-desc" }, [_c('p', [_vm._v("\r\n              sav-bulma-vue组件是一款基于savjs,bulma和Vuejs的前端UI组件库，致力于提供一整套高质量前后端视觉解决方案，提高设计，开发的效率。由海风前端ued团队倾情出品，感谢以下同事的付出：大鹏，晓飞，会会，叶子，鹿鹿。此版本为beta版，更多功能敬请期待...\r\n            ")])])]) : _vm._e()], 1)], 1)]);
+        } } }, [_vm._v("EVENTS")])])])]), _vm._v(" "), _vm.compList[_vm.$route.params.component] && _vm.compList[_vm.$route.params.component].props ? _c('SavTable', { directives: [{ name: "show", rawName: "v-show", value: _vm.activeItem === 1, expression: "activeItem === 1" }], attrs: { "columns": _vm.p.columns, "datas": _vm.compList[_vm.$route.params.component].props } }) : _vm._e(), _vm._v(" "), _vm.compList[_vm.$route.params.component].slots ? _c('SavTable', { directives: [{ name: "show", rawName: "v-show", value: _vm.activeItem === 2, expression: "activeItem === 2" }], attrs: { "columns": _vm.s.columns, "datas": _vm.compList[_vm.$route.params.component].slots } }) : _vm._e(), _vm._v(" "), _vm.compList[_vm.$route.params.component].events ? _c('SavTable', { directives: [{ name: "show", rawName: "v-show", value: _vm.activeItem === 3, expression: "activeItem === 3" }], attrs: { "columns": _vm.e.columns, "datas": _vm.compList[_vm.$route.params.component].events } }) : _vm._e()], 1)]) : _vm._e(), _vm._v(" "), !(_vm.$route.params.component in _vm.compList) ? _c('div', [_c('header', { staticClass: "example-header" }, [_c('span', [_vm._v("\r\n                sav-bulma-vue组件\r\n          "), _c('a', { attrs: { "href": "#按钮类型" } }, [_vm._v("#")])])]), _vm._v(" "), _c('div', { staticClass: "example-desc" }, [_c('p', [_vm._v("\r\n              sav-bulma-vue组件是一款基于savjs,bulma和Vuejs的前端UI组件库，致力于提供一整套高质量前后端视觉解决方案，提高设计，开发的效率。由海风前端ued团队倾情出品，感谢以下同事的付出：大鹏，晓飞，会会，叶子，鹿鹿。此版本为beta版，更多功能敬请期待...\r\n            ")])])]) : _vm._e()], 1)], 1)]);
   },
   staticRenderFns: [],
   data() {
@@ -1972,15 +2084,15 @@ var Index = {
       activeItem: 1,
       p: {
         columns: [{ title: '属性', key: 'name' }, { title: '类型', key: 'type' }, { title: '默认值', key: 'default' }, { title: '说明', key: 'description' }],
-        datas: data[this.$route.params.component] && data[this.$route.params.component].props || []
+        datas: data[this.$route.params.component] && data[this.$route.params.component].props ? data[this.$route.params.component].props : []
       },
       s: {
         columns: [{ title: '属性', key: 'name' }, { title: '说明', key: 'description' }],
-        datas: data[this.$route.params.component] && data[this.$route.params.component].slots || []
+        datas: data[this.$route.params.component] && data[this.$route.params.component].slots ? data[this.$route.params.component].slots : []
       },
       e: {
         columns: [{ title: '属性', key: 'name' }, { title: '说明', key: 'description' }],
-        datas: data[this.$route.params.component] && data[this.$route.params.component].events || []
+        datas: data[this.$route.params.component] && data[this.$route.params.component].events ? data[this.$route.params.component].events : []
       }
     };
   },

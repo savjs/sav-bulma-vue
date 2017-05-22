@@ -22,6 +22,7 @@
               <li><router-link to="/layout" >Layout</router-link></li>
               <li><router-link to="/grid" >Grid</router-link></li>
               <li><router-link to="/savtable" >SavTable</router-link></li>
+              <li><router-link to="/savtab" >SavTab</router-link></li>
             </ul>
           </aside>
         </div>

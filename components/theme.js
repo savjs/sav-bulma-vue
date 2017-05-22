@@ -11,7 +11,8 @@ let theme = {
   gridrow: 'columns',
   gridcol: 'column',
   layout: 'layout',
-  table: 'table'
+  table: 'table',
+  tab: 'tabs'
 }
 
 export default theme
