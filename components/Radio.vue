@@ -2,7 +2,7 @@
   <label :class="[theme.radio]">
     <span :class="radioClasses">
       <span :class="innerClasses"></span>
-      <input type="radio" :checked="currentValue" @change="handleChange" :disabled="disabled || null" :name="name" :value="trueValue" />
+      <input type="radio" :checked="value" @change="handleChange" :disabled="disabled || null" :name="name" :value="trueValue" />
     </span>
     <span class="radio-text"><slot></slot></span>
   </label>
@@ -34,7 +34,7 @@
         return [
           `sav-radio`,
           {
-            [`sav-radio-checked`]: this.currentValue,
+            [`sav-radio-checked`]: this.value,
             [`sav-radio-disabled`]: this.disabled
           }
         ]
@@ -45,13 +45,7 @@
     },
     data () {
       return {
-        theme,
-        currentValue: this.value
-      }
-    },
-    watch: {
-      value () {
-        this.updateModel()
+        theme
       }
     },
     methods: {
@@ -62,12 +56,8 @@
         }
   
         const checked = $event.target.checked
-        this.currentValue = checked
-        this.$emit('input', this.trueValue)
+        this.$emit('input', checked)
         this.$emit('change', this.trueValue)
-      },
-      updateModel () {
-        this.currentValue = this.value
       }
     }
   }

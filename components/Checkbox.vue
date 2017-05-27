@@ -2,7 +2,7 @@
   <label :class="[theme.checkbox]">
     <span :class="checkboxClasses">
       <span :class="innerClasses"></span>
-      <input type="checkbox" :checked="currentValue" @change="handleChange" :disabled="disabled || null"/>
+      <input type="checkbox" :checked="value" @change="handleChange" :disabled="disabled || null" :value="trueValue"/>
     </span>
     <span class="check-text"><slot></slot></span>
   </label>
@@ -19,6 +19,10 @@
       disabled: {
         type: Boolean,
         default: false
+      },
+      trueValue: {
+        type: [String, Number],
+        default: ''
       }
     },
     computed: {
@@ -26,7 +30,7 @@
         return [
           `sav-checkbox`,
           {
-            [`sav-checkbox-checked`]: this.currentValue,
+            [`sav-checkbox-checked`]: this.value,
             [`sav-checkbox-disabled`]: this.disabled
           }
         ]
@@ -37,14 +41,10 @@
     },
     data () {
       return {
-        theme,
-        currentValue: this.value
+        theme
       }
     },
     watch: {
-      value () {
-        this.updateModel()
-      }
     },
     methods: {
       handleChange ($event) {
@@ -52,13 +52,9 @@
           $event.preventDefault()
           return
         }
-  
         const checked = $event.target.checked
-        this.currentValue = checked
         this.$emit('input', checked)
-      },
-      updateModel () {
-        this.currentValue = this.value
+        this.$emit('change', this.trueValue)
       }
     }
   }
