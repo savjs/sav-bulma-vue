@@ -1,20 +1,25 @@
 <template>
   <div>
-    <checkbox :trueValue="opt.value" :value="opt.value == v" @change="click" v-for="opt in [{text:'aa',value:1},{text:'bb',value:2}]" name="aaa">{{opt.text}}</checkbox>
+    <checkbox v-model="v">ttttt</checkbox>
+    <checkbox :trueValue="opt.value" :value="opt.checked" @change="click" v-for="opt in opts" name="aaa">{{opt.text+'@'+opt.checked}}</checkbox>
     
-    {{v}}
   </div>
 </template>
 <script>
   export default {
     data(){
       return {
-        v:2
+        v:2,
+        opts:[{text:'aaaaa',value:1,checked:false},{text:'bbbbb',value:2,checked:true}]
       }
     },
     methods:{
-      click (v) {
-        this.v = v
+      click (v,checked) {
+        this.opts.forEach(function(it){
+          if(it.value == v){
+            it.checked = checked
+          }
+        })
       }
     }
   }

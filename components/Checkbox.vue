@@ -54,7 +54,7 @@
         }
         const checked = $event.target.checked
         this.$emit('input', checked)
-        this.$emit('change', this.trueValue)
+        this.$emit('change', this.trueValue, checked)
       }
     }
   }
