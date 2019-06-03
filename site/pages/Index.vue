@@ -79,7 +79,7 @@
           <a href="#按钮类型">#</a></span></header>
           <div class="example-desc">
             <p>
-              sav-bulma-vue组件是一款基于savjs,bulma和Vuejs的前端UI组件库，致力于提供一整套高质量前后端视觉解决方案，提高设计，开发的效率。由海风前端ued团队倾情出品，感谢以下同事的付出：大鹏，晓飞，会会，叶子，鹿鹿。此版本为beta版，更多功能敬请期待...
+              sav-bulma-vue组件是一款基于savjs,bulma和Vuejs的前端UI组件库，致力于提供一整套高质量前后端视觉解决方案，提高设计，开发的效率。由某某前端ued团队倾情出品，感谢以下同事的付出：**，**，**，**，**。此版本为beta版，更多功能敬请期待...
             </p>
           </div></div>
   </GridRow>
